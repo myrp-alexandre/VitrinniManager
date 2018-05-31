@@ -1,0 +1,52 @@
+﻿<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color" ng-show="token_loja">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">GERENCIADOR</a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Minha Loja</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#!/loja/minha-loja">Atualizar cadastro</a>
+                </div>
+            </li>
+            <!--<li class="nav-item active">
+                <a class="nav-link" href="#!/loja/minha-loja">
+                    Produtos
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>-->
+
+
+
+        </ul>
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-secondary">
+                    <a class="dropdown-item waves-effect waves-light" href="#!/logout">Sair</a>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->

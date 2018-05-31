@@ -1,0 +1,56 @@
+﻿
+<div class="card mx-sm-5 margin_top">
+    <div class="card-body">
+        <form name="loginForm" method="post">
+            <!--Header-->
+            <div class="form-header deep-blue-gradient rounded">
+                <h3><i class="fa fa-lock"></i> Login:</h3>
+            </div>
+            <!-- Material input email -->
+            <div class="md-form font-weight-light" ng-class="{ 'has-error' : loginForm.email.$invalid && loginForm.email.$dirty }">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input ng-model="vm.login.email"
+                       ng-minlength="5"
+                       ng-maxlength="160"
+                       type="email"
+                       class="form-control"
+                       id="email"
+                       name="email"
+                       required />
+                <label for="materialFormEmailEx">email</label>
+                <div ng-show="loginForm.email.$invalid && loginForm.email.$dirty"
+                     class="alert alert-danger">
+                    E-mail inválido
+                </div>
+            </div>
+            <!-- Material input password -->
+            <div class="md-form font-weight-light " ng-class="{ 'has-error' : loginForm.senha.$invalid && loginForm.senha.$dirty }">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <input ng-model="vm.login.senha"
+                       ng-minlength="6"
+                       ng-maxlength="20"
+                       type="password"
+                       class="form-control"
+                       id="senha"
+                       name="senha"
+                       required />
+                <label for="materialFormPasswordEx">senha</label>
+                <div class="alert alert-danger" ng-show="loginForm.senha.$invalid && loginForm.senha.$dirty">
+                    senha deve conter o mínimo de 6 caracteres e máximo de 20 caracteres.
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-light-blue waves-effect waves-light" type="submit" ng-click="vm.autenticar()">Login</button>
+            </div>
+        </form>
+    </div>
+  
+    <!--Footer-->
+    <div class="modal-footer">
+        <div class="options font-weight-light">
+            <p>Registre-se? <a href="#"></a></p>
+            <p>Esqueci a minha senha <a href="#"></a></p>
+        </div>
+    </div>
+</div>
+
