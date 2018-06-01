@@ -188,3 +188,5 @@ C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.API\obj\D
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.API\obj\Debug\VitrinniManager.API.csproj.CopyComplete
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.API\obj\Debug\VitrinniManager.API.dll
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.API\obj\Debug\VitrinniManager.API.pdb
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\bin\VitrinniManager.Compartilhado.dll
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\bin\VitrinniManager.Compartilhado.pdb

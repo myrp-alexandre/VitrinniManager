@@ -40,14 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Validacao\AssertionConcern.cs" />
-    <Compile Include="Common\Validacao\EmailAssertionConcern.cs" />
-    <Compile Include="Common\Validacao\PasswordAssertionConcern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\ContaServico.cs" />
     <Compile Include="Servicos\LojaServico.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VitrinniManager.Compartilhado\VitrinniManager.Compartilhado.csproj">
+      <Project>{9dff2fa1-33b6-455d-bdfb-fd02d42f2c76}</Project>
+      <Name>VitrinniManager.Compartilhado</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VitrinniManager.Dominio\VitrinniManager.Dominio.csproj">
       <Project>{6B0F84BA-1281-427C-8D8A-A61D273B81B1}</Project>
       <Name>VitrinniManager.Dominio</Name>
@@ -59,6 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

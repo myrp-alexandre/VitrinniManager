@@ -20,9 +20,8 @@ namespace VitrinniManager.Infra.Repositorio
         public Loja BuscarPorEmail(string email)
         {
             var loja = _context.Lojas.Where(x => x.emailLoja == email).FirstOrDefault();
-
-            // carrega os enderecos da loja 
-            _context.Entry(loja).Collection(p => p.Enderecos).Load();
+            if (loja != null)
+                _context.Entry(loja).Collection(p => p.Enderecos).Load();
 
             return loja;
         }

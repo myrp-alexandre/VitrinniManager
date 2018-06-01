@@ -24,5 +24,6 @@
             }
             return $http.get(SETTINGS.SERVICE_URL + 'api/home', header);
         }
+        
     }
 })();

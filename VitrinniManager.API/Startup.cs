@@ -24,6 +24,11 @@ namespace VitrinniManager.API
             ConfigureOAuth(app, new ContaServico());
             ConfigureWebApi(config);
 
+
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+
+
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
         }
@@ -45,14 +50,14 @@ namespace VitrinniManager.API
 
         private void ConfigureWebApi(HttpConfiguration config)
         {
-            var formatters = config.Formatters;
-            formatters.Remove(formatters.XmlFormatter);
+            //var formatters = config.Formatters;
+            //formatters.Remove(formatters.XmlFormatter);
 
-            var jsonSettings = formatters.JsonFormatter.SerializerSettings;
-            jsonSettings.Formatting = Formatting.Indented;
-            jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //var jsonSettings = formatters.JsonFormatter.SerializerSettings;
+            //jsonSettings.Formatting = Formatting.Indented;
+            //jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-            formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            //formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
 
 
             //configurando rotas

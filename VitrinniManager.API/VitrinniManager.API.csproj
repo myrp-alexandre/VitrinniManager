@@ -121,8 +121,10 @@
     <Content Include="wwwroot\app\config.js" />
     <Content Include="wwwroot\app\controllers\conta\login-controller.js" />
     <Content Include="wwwroot\app\controllers\conta\logout-controller.js" />
+    <Content Include="wwwroot\app\controllers\conta\registrar-controller.js" />
     <Content Include="wwwroot\app\controllers\home\home-controller.js" />
     <Content Include="wwwroot\app\controllers\loja\loja-controller.js" />
+    <Content Include="wwwroot\app\factories\conta\registrar-factory.js" />
     <Content Include="wwwroot\app\factories\conta\login-factory.js" />
     <Content Include="wwwroot\app\factories\endereco\endereco-factory.js" />
     <Content Include="wwwroot\app\factories\loja\loja-factory.js" />
@@ -154,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Controllers\TestesController.cs" />

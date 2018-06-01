@@ -5,12 +5,14 @@
         $routeProvider.when('/', {
             controller: 'HomeController',
             controllerAs: 'vm',
-            templateUrl: 'wwwroot/pages/home/home.html'
+            templateUrl: 'wwwroot/pages/home/index.html'
         }).when('/login', {
             controller: 'LoginController',
             controllerAs: 'vm',
             templateUrl: 'wwwroot/pages/conta/login.html',
         }).when('/registrar', {
+            controller: 'RegistrarController',
+            controllerAs: 'vm',
             templateUrl: 'wwwroot/pages/conta/registrar.html',
             chave: "valor"
         }).when('/logout', {

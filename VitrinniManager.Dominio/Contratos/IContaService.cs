@@ -6,5 +6,6 @@ namespace VitrinniManager.Dominio.Contratos
     public interface IContaService : IDisposable
     {
         Conta Autenticar(string email, string senha);
+        void Registrar(Conta retistro);
     }
 }

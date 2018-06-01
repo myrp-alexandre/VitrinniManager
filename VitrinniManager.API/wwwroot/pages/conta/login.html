@@ -47,7 +47,7 @@
                             Login
                             <i class="fa fa-sign-in ml-1"></i>
                         </button>
-                      
+
                     </div>
                 </form>
             </div>
@@ -68,7 +68,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modalLRFormDemo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Esqueci minha senha</h5>
@@ -76,19 +76,34 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body text-center mb-1">
-                <div class="md-form ml-0 mr-0">
-                    <input type="password" id="form1" class="form-control ml-0">
-                    <label for="form1" class="ml-0">Email</label>
-                </div>
+            <div class="modal-body">
+                <form name="esquecisenhaForm">
+                    <div class="md-form ml-0 mr-0">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input ng-model="vm.email"
+                               ng-minlength="5"
+                               ng-maxlength="160"
+                               type="email"
+                               class="form-control"
+                               id="email"
+                               name="email"
+                               required />
+                        <label for="materialFormEmailEx">email</label>
+                        <div ng-show="esquecisenhaForm.email.$invalid && esquecisenhaForm.email.$dirty"
+                             class="alert alert-danger">
+                            E-mail inválido
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-cyan waves-effect waves-light" ng-disabled="!vm.email">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
 
-                <div class="text-center mt-4">
-                    <button class="btn btn-cyan waves-effect waves-light">
-                        Enviar
-                    </button>
-                </div>
             </div>
-           
+
+
         </div>
     </div>
 </div>
