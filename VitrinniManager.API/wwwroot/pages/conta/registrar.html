@@ -1,0 +1,64 @@
+﻿<div class="flex-center margin_top">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fa fa-lock"></i> Registre-se</h3>
+            </div>
+            <div class="card-body">
+                <form name="registrarForm" method="post">
+
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" class="form-control" ng-cpf-cnpj ng-model="vm.registro.cpfcnpj" name="cpfcnpj">
+                        <label for="materialFormCardNameEx" class="font-weight-light">CPF/CNPJ</label>
+                        <div ng-show="registrarForm.cpfcnpj.$invalid && registrarForm.cpfcnpj.$dirty"
+                             class="alert alert-danger">
+                            CPF ou CNPJ inválido
+                        </div>
+                    </div>
+  
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input ng-model="vm.registro.email"
+                               ng-minlength="5"
+                               ng-maxlength="160"
+                               type="email"
+                               class="form-control"
+                               id="email"
+                               name="email"
+                               required />
+                        <label for="materialFormEmailEx">email</label>
+                        <div ng-show="registrarForm.email.$invalid && registrarForm.email.$dirty"
+                             class="alert alert-danger">
+                            E-mail inválido
+                        </div>
+                    </div>
+
+
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input type="password" id="materialFormCardPasswordEx" class="form-control">
+                        <label for="materialFormCardPasswordEx" class="font-weight-light">Senha</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                        <input type="email" id="materialFormCardConfirmEx" class="form-control">
+                        <label for="materialFormCardConfirmEx" class="font-weight-light">Confirme sua senha</label>
+                    </div>
+
+
+
+                    <div class="text-center py-4 mt-3">
+                        <button class="btn btn-cyan" type="submit">SALVAR</button>
+                    </div>
+                </form>
+                <!-- Material form register -->
+
+            </div>
+            <!-- Card body -->
+
+        </div>
+        <!-- Card -->
+    </div>
+</div>

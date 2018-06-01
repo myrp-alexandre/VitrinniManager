@@ -147,6 +147,7 @@
     <Content Include="wwwroot\assets\js\popper.min.js" />
     <Content Include="wwwroot\assets\outros\Spinner.gif" />
     <Content Include="wwwroot\pages\conta\login.html" />
+    <Content Include="wwwroot\pages\conta\registrar.html" />
     <Content Include="wwwroot\pages\home\index.html" />
     <Content Include="wwwroot\pages\shared\footer.html" />
     <Content Include="wwwroot\pages\shared\header.html" />
@@ -188,6 +189,7 @@
     <Content Include="wwwroot\assets\font\roboto\Roboto-Thin.ttf" />
     <Content Include="wwwroot\assets\font\roboto\Roboto-Thin.woff" />
     <Content Include="wwwroot\assets\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="wwwroot\assets\js\cpfcnpj.min.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VitrinniManager.Dominio\VitrinniManager.Dominio.csproj">

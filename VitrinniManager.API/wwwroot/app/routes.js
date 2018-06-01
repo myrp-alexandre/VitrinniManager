@@ -10,6 +10,9 @@
             controller: 'LoginController',
             controllerAs: 'vm',
             templateUrl: 'wwwroot/pages/conta/login.html',
+        }).when('/registrar', {
+            templateUrl: 'wwwroot/pages/conta/registrar.html',
+            chave: "valor"
         }).when('/logout', {
             controller: 'LogoutController',
             controllerAs: 'vm',
