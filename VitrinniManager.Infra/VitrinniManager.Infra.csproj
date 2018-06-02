@@ -59,6 +59,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VitrinniManager.Compartilhado\VitrinniManager.Compartilhado.csproj">
+      <Project>{9DFF2FA1-33B6-455D-BDFB-FD02D42F2C76}</Project>
+      <Name>VitrinniManager.Compartilhado</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VitrinniManager.Dominio\VitrinniManager.Dominio.csproj">
       <Project>{6b0f84ba-1281-427c-8d8a-a61d273b81b1}</Project>
       <Name>VitrinniManager.Dominio</Name>

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Email\EmailUtil.cs" />
+    <Compile Include="Common\GeraAutomatico\geraGUID.cs" />
+    <Compile Include="Common\Replace\CPF_CNPJ.cs" />
+    <Compile Include="Common\Replace\StringReplace.cs" />
     <Compile Include="Common\Validacao\AssertionConcern.cs" />
     <Compile Include="Common\Validacao\EmailAssertionConcern.cs" />
     <Compile Include="Common\Validacao\PasswordAssertionConcern.cs" />

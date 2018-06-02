@@ -25,6 +25,7 @@ namespace VitrinniManager.Dominio.Modelos
         public string confirma_senha { get; set; }
         public string CPFCNPJ { get; set; }
         public string senhaLoja { get; set; }
+        public string tokenSenha { get; set; }
 
         public void ConfirmaSenha(string senha, string confirmasenha)
         {

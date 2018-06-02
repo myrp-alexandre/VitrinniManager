@@ -1,0 +1,67 @@
+﻿<div class="flex-center margin_top">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fa fa-lock"></i> Alterar senha</h3>
+            </div>
+            <div class="card-body">
+                <form name="registrarForm" method="post">
+
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" class="form-control" ng-cpf-cnpj ng-model="vm.registro.cpfcnpj" name="CPFCNPJ">
+                        <label for="materialFormCardNameEx" class="font-weight-light">CPF/CNPJ</label>
+                        <div ng-show="registrarForm.CPFCNPJ.$invalid && registrarForm.CPFCNPJ.$dirty"
+                             class="alert alert-danger">
+                            CPF ou CNPJ inválido
+                        </div>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input ng-model="vm.registro.senhaLoja"
+                               ng-minlength="6"
+                               ng-maxlength="20"
+                               type="password"
+                               class="form-control"
+                               id="senhaLoja"
+                               name="senhaLoja"
+                               required />
+                        <label for="materialFormPasswordEx">senha</label>
+                        <div class="alert alert-danger" ng-show="registrarForm.senhaLoja.$invalid && registrarForm.senhaLoja.$dirty">
+                            senha deve conter o mínimo de 6 caracteres e máximo de 20 caracteres.
+                        </div>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                        <input ng-model="vm.registro.confirma_senha"
+                               ng-pattern="vm.registro.senhaLoja"
+                               ng-minlength="6"
+                               ng-maxlength="20"
+                               type="password"
+                               class="form-control"
+                               id="confirma_senha"
+                               name="confirma_senha"
+                               required />
+                        <label for="materialFormPasswordEx">Confirma senha</label>
+                        <div class="alert alert-danger" ng-show="(registrarForm.confirma_senha.$invalid && !registrarForm.confirma_senha.$error.pattern) && registrarForm.confirma_senha.$dirty">
+                            senha deve conter o mínimo de 6 caracteres e máximo de 20 caracteres.
+                        </div>
+                        <div class="alert alert-danger" ng-show="registrarForm.confirma_senha.$error.pattern">
+                            senhas não conferem!
+                        </div>
+                    </div>
+                    <div class="text-center py-4 mt-3">
+                        <button class="btn btn-cyan" type="submit" ng-disabled="registrarForm.$invalid" ng-click="vm.registrar(vm.registro)">SALVAR</button>
+                    </div>
+                </form>
+                <!-- Material form register -->
+
+            </div>
+            <!-- Card body -->
+
+        </div>
+        <!-- Card -->
+    </div>
+</div>

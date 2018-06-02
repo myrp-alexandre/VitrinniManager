@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using VitrinniManager.Compartilhado.Common.Email;
 using VitrinniManager.Dominio.Modelos;
 using VitrinniManager.Infra.Data;
 
@@ -33,6 +30,19 @@ namespace VitrinniManager.Infra.Repositorio
                 new SqlParameter("@emailLoja", registro.emailLoja),
                 new SqlParameter("@CPFCNPJ", registro.CPFCNPJ),
                 new SqlParameter("@senhaLoja", registro.senhaLoja));
+        }
+
+        public void InsereTokenSenha(string token, int idLoja)
+        {
+            string query = @"UPDATE vitrinni.tbLoja SET tokenSenha = @tokenSenha WHERE idLoja = @idLoja";
+            _context.Database.ExecuteSqlCommand(query,
+                new SqlParameter("@tokenSenha", token),
+                new SqlParameter("@idLoja", idLoja));
+        }
+
+        public void EnviarEmail(string destinatario, string assunto, string mensagem)
+        {
+            new EmailUtil().EnviarEmailAsync(destinatario, assunto, mensagem);
         }
 
         public void Dispose()

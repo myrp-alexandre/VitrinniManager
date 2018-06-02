@@ -2,16 +2,18 @@
     'use strict';
     angular.module('vitrinni_manager').controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$scope', 'LoginFactory','LojaFactory', '$rootScope', 'SETTINGS', '$location'];
+    LoginController.$inject = ['$scope', 'LoginFactory', 'LojaFactory', 'RecuperarSenhaFactory', '$rootScope', 'SETTINGS', '$location'];
 
-    function LoginController($scope, LoginFactory, LojaFactory, $rootScope, SETTINGS, $location) {
+    function LoginController($scope, LoginFactory, LojaFactory, RecuperarSenhaFactory, $rootScope, SETTINGS, $location) {
         var vm = this;
 
         vm.login = {
             email: '',
             senha: ''
         };
+        vm.email = '';
 
+        vm.generateTokenRecoveryPassword = generateTokenRecoveryPassword;
         vm.autenticar = autenticar;
         vm.obterLoja = obterLoja;
 
@@ -24,6 +26,16 @@
                     toastr.error(error.data.error_description, 'Erro');
                 });
         }
+        function generateTokenRecoveryPassword() {
+            RecuperarSenhaFactory.gerarTokenSenha(vm.email)
+                .then(function (response) {
+                    toastr.success('Enviamos as instruções para alteração de senha', 'Verifique seu E-mail');
+                })
+                .catch(function (error) {
+                    toastr.error(error.data, 'Erro');
+                });
+        }
+
 
         function obterLoja(token) {
             LojaFactory.obterLoja(token)

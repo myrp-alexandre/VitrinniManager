@@ -71,7 +71,7 @@
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Esqueci minha senha</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Esqueceu a senha?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -81,21 +81,22 @@
                     <div class="md-form ml-0 mr-0">
                         <i class="fa fa-envelope prefix grey-text"></i>
                         <input ng-model="vm.email"
+                               ng-class="{ 'has-error' : esquecisenhaForm.emailRecovery.$invalid && esquecisenhaForm.emailRecovery.$dirty }"
                                ng-minlength="5"
                                ng-maxlength="160"
                                type="email"
                                class="form-control"
-                               id="email"
-                               name="email"
+                               id="emailRecovery"
+                               name="emailRecovery"
                                required />
-                        <label for="materialFormEmailEx">email</label>
-                        <div ng-show="esquecisenhaForm.email.$invalid && esquecisenhaForm.email.$dirty"
+                        <label for="materialFormEmailEx">Digite seu e-mail para recuperar a sua senha.</label>
+                        <div ng-show="esquecisenhaForm.emailRecovery.$invalid && esquecisenhaForm.emailRecovery.$dirty"
                              class="alert alert-danger">
                             E-mail inválido
                         </div>
                     </div>
                     <div class="text-center mt-4">
-                        <button class="btn btn-cyan waves-effect waves-light" ng-disabled="!vm.email">
+                        <button class="btn btn-cyan waves-effect waves-light" ng-disabled="!vm.email" ng-click="vm.generateTokenRecoveryPassword()">
                             Enviar
                         </button>
                     </div>

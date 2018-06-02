@@ -23,6 +23,11 @@
             controller: 'LojaController',
             controllerAs: 'vm',
             templateUrl: 'wwwroot/pages/loja/minha-loja.html'
+        }).when('/recoveryPassword/:id/token/:token', {
+            controller: 'RecuperarSenhaController',
+            controllerAs: 'vm',
+            templateUrl: 'wwwroot/pages/conta/recuperar-senha.html',
+            chave: 'valor'
         })
     });
 })()

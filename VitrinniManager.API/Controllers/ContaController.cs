@@ -16,7 +16,6 @@ namespace VitrinniManager.API.Controllers
     public class ContaController : BaseController
     {
         private readonly IContaService _contaServico;
-
         public ContaController()
         {
             _contaServico = new ContaServico();
@@ -29,13 +28,33 @@ namespace VitrinniManager.API.Controllers
         {
             try
             {
-                _contaServico.Registrar(registro);                
+                _contaServico.Registrar(registro);
                 return CreateResponse(HttpStatusCode.OK, registro);
             }
             catch (Exception ex)
             {
                 return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("gerarTokenSenha")]
+        public Task<HttpResponseMessage> gerarTokenSenha(string email)
+        {
+
+            try
+            {
+                var token = _contaServico.GerarTokenSenha(email);
+                _contaServico.EnviarEmailRecuperarSenha(email);
+
+                return CreateResponse(HttpStatusCode.OK, token);
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.NotFound, ex.Message);
+            }
+
         }
 
     }

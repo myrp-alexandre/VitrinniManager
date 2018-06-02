@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
+using VitrinniManager.Common.Replace;
+using VitrinniManager.Common.Validacao;
+using VitrinniManager.Compartilhado.Common.Email;
+using VitrinniManager.Compartilhado.Common.GeraAutomatico;
 using VitrinniManager.Dominio.Contratos;
 using VitrinniManager.Dominio.Modelos;
 using VitrinniManager.Infra.Data;
 using VitrinniManager.Infra.Repositorio;
-using VitrinniManager.Common.Validacao;
 
 namespace VitrinniManager.Negocio.Servicos
 {
@@ -11,6 +15,8 @@ namespace VitrinniManager.Negocio.Servicos
     {
         private readonly ContaRepositorio _repositorio = null;
         private readonly LojaRepositorio _repositorioLoja = null;
+
+    
 
         public ContaServico()
         {
@@ -30,11 +36,13 @@ namespace VitrinniManager.Negocio.Servicos
 
         public void Registrar(Conta registro)
         {
-            var reg = _repositorioLoja.BuscarPorEmail(registro.emailLoja);
+            var loja_email = _repositorioLoja.BuscarPorEmail(registro.emailLoja);
+            var loja_cpf_cnpj = _repositorioLoja.BuscarPorCPF_CNPJ(CPF_CNPJ.Replace(registro.CPFCNPJ));
 
 
-            if (reg != null)
-                throw new Exception("Email já cadastrado.");
+            if (loja_email != null || loja_cpf_cnpj != null)
+                throw new Exception("Conta já cadastrada.");
+
 
             Conta conta = new Conta(registro.emailLoja, registro.CPFCNPJ);
 
@@ -43,11 +51,47 @@ namespace VitrinniManager.Negocio.Servicos
             _repositorio.Create(conta);
         }
 
+
+        public string GerarTokenSenha(string email)
+        {
+
+            var usuario = _repositorioLoja.BuscarPorEmail(email);
+
+            if (usuario == null)
+                throw new Exception("Email não cadastrado.");
+
+            var token = geraGUID.NewGuid().ToString();
+
+            _repositorio.InsereTokenSenha(token, usuario.idLoja);
+
+            return token;
+
+        }
+
         public void Dispose()
         {
             _repositorio.Dispose();
         }
 
+        public void EnviarEmailRecuperarSenha(string email)
+        {
+            var loja = _repositorioLoja.BuscarPorEmail(email);
+            string link = "http://localhost:57934/#!/recoveryPassword/" + loja.idLoja + "/token/" + loja.tokenLoja;
 
+            if (loja == null)
+                throw new Exception("Email não cadastrado.");
+
+            string subject = "Alteração de senha - Vitrinni";
+            var body = EmailUtil.MensagemEmail_RedefinirSenha(loja.nomeLoja, link);
+
+            EnviarEmail(loja.emailLoja, subject, body);
+        }
+
+        public void EnviarEmail(string destinatario, string assunto, string mensagem)
+        {
+             _repositorio.EnviarEmail(destinatario, assunto, mensagem);
+        }
+
+       
     }
 }

@@ -16,6 +16,14 @@ namespace VitrinniManager.Negocio.Servicos
             _repositorio = new LojaRepositorio(new AppDataContext());
         }
 
+        public Loja bucarPorCPF_CNPJ(string CPF_CNPJ)
+        {
+            var loja = _repositorio.BuscarPorEmail(CPF_CNPJ);
+            if (loja == null)
+                throw new Exception("CPF ou CNPJ não encontrado.");
+            return loja;
+        }
+
         public Loja bucarPorEmail(string email)
         {
             var loja = _repositorio.BuscarPorEmail(email);

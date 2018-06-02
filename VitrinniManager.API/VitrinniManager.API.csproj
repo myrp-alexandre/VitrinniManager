@@ -119,11 +119,13 @@
     <Content Include="Web.config" />
     <Content Include="wwwroot\app\app.js" />
     <Content Include="wwwroot\app\config.js" />
+    <Content Include="wwwroot\app\controllers\conta\recuperarSenha-controller .js" />
     <Content Include="wwwroot\app\controllers\conta\login-controller.js" />
     <Content Include="wwwroot\app\controllers\conta\logout-controller.js" />
     <Content Include="wwwroot\app\controllers\conta\registrar-controller.js" />
     <Content Include="wwwroot\app\controllers\home\home-controller.js" />
     <Content Include="wwwroot\app\controllers\loja\loja-controller.js" />
+    <Content Include="wwwroot\app\factories\conta\recuperarSenha-factory .js" />
     <Content Include="wwwroot\app\factories\conta\registrar-factory.js" />
     <Content Include="wwwroot\app\factories\conta\login-factory.js" />
     <Content Include="wwwroot\app\factories\endereco\endereco-factory.js" />
@@ -151,6 +153,7 @@
     <Content Include="wwwroot\pages\conta\login.html" />
     <Content Include="wwwroot\pages\conta\registrar.html" />
     <Content Include="wwwroot\pages\home\index.html" />
+    <Content Include="wwwroot\pages\conta\recuperar-senha.html" />
     <Content Include="wwwroot\pages\shared\footer.html" />
     <Content Include="wwwroot\pages\shared\header.html" />
   </ItemGroup>
