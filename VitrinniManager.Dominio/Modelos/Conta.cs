@@ -17,6 +17,13 @@ namespace VitrinniManager.Dominio.Modelos
             this.emailLoja = _email;
             this.CPFCNPJ = _CPFCNPJ;
         }
+
+        public Conta(string _CPFCNPJ, string _senha, string _tokenSenha)
+        {
+            this.senhaLoja = _senha;
+            this.CPFCNPJ = _CPFCNPJ;
+            this.tokenSenha = _tokenSenha;
+        }
         protected Conta() { }
 
 

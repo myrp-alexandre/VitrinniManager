@@ -24,6 +24,14 @@ namespace VitrinniManager.Negocio.Servicos
             return loja;
         }
 
+        public Loja bucarPorCPF_CNPJComEndereco(string CPF_CNPJ)
+        {
+            var loja = _repositorio.BuscarPorEmailComEndereco(CPF_CNPJ);
+            if (loja == null)
+                throw new Exception("CPF ou CNPJ não encontrado.");
+            return loja;
+        }
+
         public Loja bucarPorEmail(string email)
         {
             var loja = _repositorio.BuscarPorEmail(email);
@@ -31,6 +39,14 @@ namespace VitrinniManager.Negocio.Servicos
                 throw new Exception("Email não encontrado.");
             return loja;
 
+        }
+
+        public Loja bucarPorEmailComEndereco(string email)
+        {
+            var loja = _repositorio.BuscarPorEmailComEndereco(email);
+            if (loja == null)
+                throw new Exception("Email não encontrado.");
+            return loja;
         }
 
         public void Dispose()

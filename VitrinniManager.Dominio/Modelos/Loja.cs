@@ -33,6 +33,8 @@ namespace VitrinniManager.Dominio.Modelos
 
         public string linkWhatsapp { get; set; }
 
+        public string tokenSenha { get; set; }
+
         public ICollection<Endereco> Enderecos { get; set; }
 
       

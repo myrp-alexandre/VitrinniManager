@@ -40,6 +40,25 @@ namespace VitrinniManager.Infra.Repositorio
                 new SqlParameter("@idLoja", idLoja));
         }
 
+
+        public void RecuperarSenha(Conta registro)
+        {
+            string query = @"UPDATE vitrinni.tbLoja SET senhaLoja = @senhaLoja WHERE CPFCNPJ = @cpf_cnpj AND tokenSenha = @tokenSenha";
+            _context.Database.ExecuteSqlCommand(query,
+                new SqlParameter("@senhaLoja", registro.senhaLoja),
+                new SqlParameter("@cpf_cnpj", registro.CPFCNPJ),
+                new SqlParameter("@tokenSenha", registro.tokenSenha));
+        }
+
+
+
+        public void LimpaTokenSenha(int idLoja)
+        {
+            string query = @"UPDATE vitrinni.tbLoja SET tokenSenha = '' WHERE idLoja = @idLoja";
+            _context.Database.ExecuteSqlCommand(query,
+                new SqlParameter("@idLoja", idLoja));
+        }
+
         public void EnviarEmail(string destinatario, string assunto, string mensagem)
         {
             new EmailUtil().EnviarEmailAsync(destinatario, assunto, mensagem);

@@ -36,5 +36,19 @@ namespace VitrinniManager.API.Controllers
                 return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+        [HttpGet]
+        [Route("obterLojaComEndereco")]
+        public Task<HttpResponseMessage> obterLojaComEndereco()
+        {
+            try
+            {
+                var loja = _lojaServico.bucarPorEmailComEndereco(User.Identity.Name);
+                return CreateResponse(HttpStatusCode.OK, loja);
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
     }
 }

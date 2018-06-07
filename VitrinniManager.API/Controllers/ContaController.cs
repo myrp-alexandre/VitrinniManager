@@ -57,5 +57,22 @@ namespace VitrinniManager.API.Controllers
 
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("recuperarSenha")]
+        public Task<HttpResponseMessage> RecuperarSenha(Conta registro)
+        {
+            try
+            {
+                _contaServico.RecuperarSenha(registro);
+                return CreateResponse(HttpStatusCode.OK, "");
+            }
+            catch (Exception ex)
+            {
+
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
     }
 }

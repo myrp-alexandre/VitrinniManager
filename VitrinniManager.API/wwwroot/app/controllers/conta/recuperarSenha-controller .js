@@ -6,12 +6,18 @@
 
     function RecuperarSenhaController($location, $rootScope, $routeParams, RecuperarSenhaFactory) {
         var vm = this;
-        vm.recovery = {
-            password: ''
+        vm.registro = {
+            CPFCNPJ: '',
+            senhaLoja: '',
+            confirma_senha: '',
+            tokenSenha: $routeParams.token,
         }
 
-        function recoveryPassword() {
-            RecuperarSenhaFactory.recuperarSenha(vm.recovery)
+        vm.recuperarSenha = recuperarSenha;
+
+        function recuperarSenha(registro) {
+
+            RecuperarSenhaFactory.recuperarSenha(registro)
                 .then(function (response) {
                     toastr.success('Senha alterada com sucesso', 'Senha alterada!');
                     $location.path('/login');
@@ -20,7 +26,7 @@
                     if (error.status == 404)
                         toastr.error('Usuário não encontrado', 'Erro');
                     else
-                        toastr.error(error.data.Message, 'Erro');
+                        toastr.error(error.data, 'Erro');
                 });
         }
     };

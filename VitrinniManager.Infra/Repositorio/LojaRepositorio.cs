@@ -20,13 +20,25 @@ namespace VitrinniManager.Infra.Repositorio
         public Loja BuscarPorEmail(string email)
         {
             var loja = _context.Lojas.Where(x => x.emailLoja == email).FirstOrDefault();
+            return loja;
+        }
+
+        public Loja BuscarPorCPF_CNPJ(string cpf_cnpj)
+        {
+            var loja = _context.Lojas.Where(x => x.CPFCNPJ == cpf_cnpj).FirstOrDefault();
+            return loja;
+        }
+
+        public Loja BuscarPorEmailComEndereco(string email)
+        {
+            var loja = _context.Lojas.Where(x => x.emailLoja == email).FirstOrDefault();
             if (loja != null)
                 _context.Entry(loja).Collection(p => p.Enderecos).Load();
 
             return loja;
         }
 
-        public Loja BuscarPorCPF_CNPJ(string cpf_cnpj)
+        public Loja BuscarPorCPF_CNPJComEndereco(string cpf_cnpj)
         {
             var loja = _context.Lojas.Where(x => x.CPFCNPJ == cpf_cnpj).FirstOrDefault();
             if (loja != null)

@@ -15,8 +15,8 @@
             return $http.get(SETTINGS.SERVICE_URL + 'api/conta/gerarTokenSenha?email=' + email);
         }
 
-        function recuperarSenha(user) {
-            return $http.post(SETTINGS.SERVICE_URL + 'api/conta/recuperarSenha', { headers: { 'password': user.password, 'token': user.token, 'idUser': user.idUser } });
+        function recuperarSenha(registro) {
+            return $http.post(SETTINGS.SERVICE_URL + 'api/conta/recuperarSenha', registro);
         }
     }
 })();

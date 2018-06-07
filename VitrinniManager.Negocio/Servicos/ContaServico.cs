@@ -16,7 +16,7 @@ namespace VitrinniManager.Negocio.Servicos
         private readonly ContaRepositorio _repositorio = null;
         private readonly LojaRepositorio _repositorioLoja = null;
 
-    
+
 
         public ContaServico()
         {
@@ -39,16 +39,34 @@ namespace VitrinniManager.Negocio.Servicos
             var loja_email = _repositorioLoja.BuscarPorEmail(registro.emailLoja);
             var loja_cpf_cnpj = _repositorioLoja.BuscarPorCPF_CNPJ(CPF_CNPJ.Replace(registro.CPFCNPJ));
 
-
             if (loja_email != null || loja_cpf_cnpj != null)
                 throw new Exception("Conta já cadastrada.");
 
 
-            Conta conta = new Conta(registro.emailLoja, registro.CPFCNPJ);
-
+            Conta conta = new Conta(registro.emailLoja, CPF_CNPJ.Replace(registro.CPFCNPJ));
             conta.ConfirmaSenha(registro.senhaLoja, registro.confirma_senha);
 
             _repositorio.Create(conta);
+        }
+
+        public void RecuperarSenha(Conta registro)
+        {
+            var usuario = _repositorioLoja.BuscarPorCPF_CNPJ(CPF_CNPJ.Replace(registro.CPFCNPJ));
+
+            if (usuario == null)
+                throw new Exception("Cpf ou CNPJ não encontrado.");
+
+
+            Conta conta = new Conta(CPF_CNPJ.Replace(registro.CPFCNPJ), registro.senhaLoja, usuario.tokenSenha);
+            conta.ConfirmaSenha(registro.senhaLoja, registro.confirma_senha);
+
+
+            if (registro.tokenSenha != conta.tokenSenha)
+                throw new Exception("Dados não conferem, repita todo o processo.");
+
+
+            _repositorio.RecuperarSenha(conta);
+            _repositorio.LimpaTokenSenha(usuario.idLoja);
         }
 
 
@@ -76,7 +94,7 @@ namespace VitrinniManager.Negocio.Servicos
         public void EnviarEmailRecuperarSenha(string email)
         {
             var loja = _repositorioLoja.BuscarPorEmail(email);
-            string link = "http://localhost:57934/#!/recoveryPassword/" + loja.idLoja + "/token/" + loja.tokenLoja;
+            string link = "http://localhost:57934/#!/recuperarSenha/" + loja.idLoja + "/token/" + loja.tokenSenha;
 
             if (loja == null)
                 throw new Exception("Email não cadastrado.");
@@ -89,9 +107,9 @@ namespace VitrinniManager.Negocio.Servicos
 
         public void EnviarEmail(string destinatario, string assunto, string mensagem)
         {
-             _repositorio.EnviarEmail(destinatario, assunto, mensagem);
+            _repositorio.EnviarEmail(destinatario, assunto, mensagem);
         }
 
-       
+
     }
 }
