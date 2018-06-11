@@ -46,7 +46,9 @@ namespace VitrinniManager.API.Controllers
             try
             {
                 var token = _contaServico.GerarTokenSenha(email);
-                _contaServico.EnviarEmailRecuperarSenha(email);
+
+                var _contaServicoEviaEmail = new ContaServico();
+                _contaServicoEviaEmail.EnviarEmailRecuperarSenha(email);
 
                 return CreateResponse(HttpStatusCode.OK, token);
             }

@@ -38,8 +38,8 @@ namespace VitrinniManager.Infra.Repositorio
             _context.Database.ExecuteSqlCommand(query,
                 new SqlParameter("@tokenSenha", token),
                 new SqlParameter("@idLoja", idLoja));
-        }
 
+        }
 
         public void RecuperarSenha(Conta registro)
         {
@@ -49,8 +49,6 @@ namespace VitrinniManager.Infra.Repositorio
                 new SqlParameter("@cpf_cnpj", registro.CPFCNPJ),
                 new SqlParameter("@tokenSenha", registro.tokenSenha));
         }
-
-
 
         public void LimpaTokenSenha(int idLoja)
         {
