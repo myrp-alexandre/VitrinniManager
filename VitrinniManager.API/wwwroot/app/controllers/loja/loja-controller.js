@@ -7,19 +7,21 @@
         var vm = this;
 
         vm.loja = {};
+
         vm.lojaAtualizar = {};
 
-        vm.endereco = {};
+        vm.endereco = [];
 
-        vm.obeterLoja = obeterLoja;
+        vm.obterLoja = obterLoja;
         vm.obterEnderecoPorCep = obterEnderecoPorCep;
+        vm.FilterEndereco = FilterEndereco;
 
 
 
         init();
 
         function init() {
-            obeterLoja($rootScope.token);
+            obterLoja($rootScope.token);
         }
 
         function obterLoja(token) {
@@ -33,7 +35,7 @@
                 });
         }
 
-        function obeterEnderecoPorCep() {
+        function obterEnderecoPorCep() {
             EnderecoFactory.obterPorCEP(vm.endereco.cep)
                 .then(function (response) {
                     if (response.data.erro == true) {
@@ -42,6 +44,15 @@
                         vm.endereco = response.data;
                     }
                 })
+        }
+
+        function FilterEndereco(id) {
+            angular.forEach(vm.loja.enderecos, function (values, key) {
+                if (values.idEndereco === id) {
+                    vm.endereco = [];
+                    vm.endereco.push(values);
+                }
+            });
         }
     };
 

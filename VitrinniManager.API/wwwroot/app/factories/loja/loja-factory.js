@@ -16,7 +16,7 @@
                     'Authorization': 'Bearer ' + token
                 }
             }
-            return $http.get(SETTINGS.SERVICE_URL + 'api/loja', header);
+            return $http.get(SETTINGS.SERVICE_URL + 'api/loja/obterLojaComEndereco', header);
         }
     }
 })();

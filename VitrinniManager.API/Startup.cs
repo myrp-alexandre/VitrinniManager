@@ -27,6 +27,8 @@ namespace VitrinniManager.API
 
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+
 
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);

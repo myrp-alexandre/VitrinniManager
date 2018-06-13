@@ -11,7 +11,7 @@ using VitrinniManager.Negocio.Servicos;
 namespace VitrinniManager.API.Controllers
 {
 
-    [Authorize]
+
     [RoutePrefix("api/loja")]
     public class LojaController : BaseController
     {

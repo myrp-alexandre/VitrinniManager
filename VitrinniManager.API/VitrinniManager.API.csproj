@@ -154,6 +154,7 @@
     <Content Include="wwwroot\pages\conta\registrar.html" />
     <Content Include="wwwroot\pages\home\index.html" />
     <Content Include="wwwroot\pages\conta\recuperar-senha.html" />
+    <Content Include="wwwroot\pages\loja\minha-loja.html" />
     <Content Include="wwwroot\pages\shared\footer.html" />
     <Content Include="wwwroot\pages\shared\header.html" />
   </ItemGroup>

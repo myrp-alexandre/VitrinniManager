@@ -1,0 +1,234 @@
+﻿<div class="card margin_top" ng-show="token_loja">
+
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header deep-orange lighten-1 white-text right">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image">
+                        {{vm.loja.nomeLoja}}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Descrição</h4>
+                        <p class="card-text">{{vm.loja.descricaoLoja}}</p>
+                    </div>
+                </div>
+                <br />
+                <div class="card">
+                    <div class="card-header deep-orange lighten-1 white-text">
+                        Endereços
+                    </div>
+                    <div class="card-body">
+                        <table class="table  table-responsive">
+                            <tbody>
+                                <tr>
+                                    <th>CEP</th>
+                                    <th>Logradouro</th>
+                                    <th>Bairro</th>
+                                    <th>Localidade/UF</th>
+                                    <th> </th>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr ng-repeat="item in vm.loja.enderecos">
+                                    <td>{{item.cep}}</td>
+                                    <td>{{item.logradouro}}</td>
+                                    <td>{{item.bairro}}</td>
+                                    <td>{{item.localidade}}-{{item.uf}}</td>
+                                    <td>
+                                        <a><i class="fa fa-edit text-info" data-toggle="modal" data-target="#md_atualizar_endereco" title="Atualizar endereço" ng-click="vm.FilterEndereco(item.idEndereco)"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header deep-orange lighten-1 white-text">
+                        <a><i class="fa fa-edit" data-toggle="modal" data-target="#md_atualizar_cadastro" title="Atualizar cadastro">Atualizar Cadastro</i> </a>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><b>CPF/CNPJ:</b> {{vm.loja.cpfcnpj}}</li>
+                            <li class="list-group-item"><b>Email:</b> {{vm.loja.emailLoja}}</li>
+                            <li class="list-group-item"><b>Contato:</b> {{vm.loja.contatoLoja}}</li>
+
+                            <li class="list-group-item">
+                                <b>Facebook:</b>
+                                <a ng-href="{{vm.loja.linkFace}}" target="_blank"><i>{{vm.loja.linkFace}}</i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Intagram:</b>
+                                <a ng-href="{{vm.loja.linkInsta}}" target="_blank"><i>{{vm.loja.linkInsta}}</i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>WhatsApp:</b>
+                                <a ng-href="{{vm.loja.linkWhatsapp}}" target="_blank"><i>{{vm.loja.linkWhatsapp}}</i></a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>URL:</b>
+                                <a ng-href="{{vm.loja.urlLoja}}" target="_blank"><i>{{vm.loja.urlLoja}}</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="md_atualizar_cadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Atualizar cadastro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.contatoLoja" type="text" id="txt_contato" class="form-control">
+                            <label for="lbl_contato" class="active">Contato</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <textarea ng-model="vm.lojaAtualizar.descricaoLoja" type="text" id="txt_descricao" class="form-control md-textarea" rows="3"></textarea>
+                            <label for="lbl_descricao" class="active">Descrição</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.linkFace" type="text" id="txt_face" class="form-control">
+                            <label for="lbl_face" class="active">Facebook</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.linkInsta" type="text" id="txt_insta" class="form-control">
+                            <label for="lbl_insta" class="active">Instagram</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.linkWhatsapp" type="text" id="txt_whatsapp" class="form-control">
+                            <label for="lbl_whatsapp" class="active">WhatsApp</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.urlLoja" type="text" id="txt_urlloja" class="form-control">
+                            <label for="lbl_urlloja" class="active">URL</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="md_atualizar_endereco" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Atualizar endereço</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form name="enderecoForm" method="post">
+                <div class="modal-body">
+                    <div class="form-row align-items-center md-form" ng-class="{ 'has-error' : enderecoForm.cep.$invalid && enderecoForm.cep.$dirty }">
+                        <div class="col-auto">
+
+                            <input ng-model="vm.endereco[0].cep"
+                                   ng-minlength="8"
+                                   ng-maxlength="9"
+                                   type="text" id="txt_cep"
+                                   class="form-control  mb-2"
+                                   name="cep"
+                                   required>
+                            <label for="lbl_cep" class="active">CEP</label>
+                            <div ng-show="enderecoForm.cep.$invalid && enderecoForm.cep.$dirty"
+                                 class="alert alert-danger">
+                                CEP inválido
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary btn-sm mt-0" ng-disabled="!vm.endereco[0].cep" ng-click="vm.obeterEnderecoPorCep()">Buscar</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="md-form">
+                                <input ng-model="vm.endereco[0].uf" type="text" id="txt_uf" class="form-control" disabled>
+                                <label for="lbl_uf" class="active">UF</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md-form">
+                        <input ng-model="vm.endereco[0].logradouro" type="text" id="txt_cep" class="form-control">
+                        <label for="lbl_cep" class="active">Endereço</label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.endereco[0].bairro" type="text" id="txt_bairro" class="form-control" disabled>
+                                <label for="lbl_bairro" class="active">Bairro</label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.endereco[0].localidade" type="text" id="txt_localidade" class="form-control" disabled>
+                                <label for="lbl_localidade" class="active">Cidade</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md-form" ng-class="{ 'has-error' : enderecoForm.complemento.$invalid && enderecoForm.complemento.$dirty }">
+                        <input ng-model="vm.endereco[0].complemento"
+                               type="text"
+                               id="txt_complemento"
+                               name="complemento"
+                               class="form-control"
+                               ng-maxlength="150">
+                        <label for="lbl_complementop" class="active">Complemento</label>
+                        <div ng-show="enderecoForm.complemento.$invalid && enderecoForm.complemento.$dirty"
+                             class="alert alert-danger">
+                            Complemento inválido
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" ng-click="vm.cadastrarEndereco(vm.endereco[0])">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

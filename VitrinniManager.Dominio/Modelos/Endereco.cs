@@ -19,6 +19,7 @@ namespace VitrinniManager.Dominio.Modelos
         public string logradouro { get; set; }
         public string complemento { get; set; }
         public string localidade { get; set; }
+        public string bairro { get; set; }
         public string UF { get; set; }
 
         [ForeignKey("Loja")]
