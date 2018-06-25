@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,12 @@ namespace VitrinniManager.Infra.Repositorio
                 _context.Entry(loja).Collection(p => p.Enderecos).Load();
 
             return loja;
+        }
+
+        public void atualizarLoja(Loja loja)
+        { 
+            _context.Entry(loja).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void Dispose()

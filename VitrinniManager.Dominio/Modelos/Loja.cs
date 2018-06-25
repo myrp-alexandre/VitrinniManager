@@ -10,6 +10,7 @@ namespace VitrinniManager.Dominio.Modelos
     {
         protected Loja() { }
 
+
         [Key]
         public int idLoja { get; set; }
 

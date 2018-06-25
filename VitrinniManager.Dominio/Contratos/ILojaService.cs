@@ -10,5 +10,7 @@ namespace VitrinniManager.Dominio.Contratos
 
         Loja bucarPorEmailComEndereco(string email);
         Loja bucarPorCPF_CNPJComEndereco(string CPF_CNPJ);
+
+        void atualizarLoja(Loja loja);
     }
 }

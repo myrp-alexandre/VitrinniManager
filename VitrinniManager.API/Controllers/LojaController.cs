@@ -6,12 +6,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using VitrinniManager.Dominio.Contratos;
+using VitrinniManager.Dominio.Modelos;
 using VitrinniManager.Negocio.Servicos;
 
 namespace VitrinniManager.API.Controllers
 {
 
-
+    [Authorize]
     [RoutePrefix("api/loja")]
     public class LojaController : BaseController
     {
@@ -44,6 +45,20 @@ namespace VitrinniManager.API.Controllers
             {
                 var loja = _lojaServico.bucarPorEmailComEndereco(User.Identity.Name);
                 return CreateResponse(HttpStatusCode.OK, loja);
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("atualizarLoja")]
+        public Task<HttpResponseMessage> atualizarLoja(Loja loja)
+        {
+            try
+            {
+                _lojaServico.atualizarLoja(loja);
+                return CreateResponse(HttpStatusCode.OK, "ok");
             }
             catch (Exception ex)
             {

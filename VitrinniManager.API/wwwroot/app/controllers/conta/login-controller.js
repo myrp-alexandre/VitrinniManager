@@ -43,6 +43,13 @@
                     $rootScope.token = token;
                     $rootScope.token_loja = response.data.tokenLoja;
 
+
+                    $rootScope.header = {
+                        headers: {
+                            'Authorization': 'Bearer ' + $rootScope.token
+                        }
+                    };
+
                     localStorage.setItem(SETTINGS.AUTH_TOKEN, token);
                     localStorage.setItem(SETTINGS.USER_NAME, response.data.emailLoja);
                     localStorage.setItem(SETTINGS.USER_ID, response.data.tokenLoja);

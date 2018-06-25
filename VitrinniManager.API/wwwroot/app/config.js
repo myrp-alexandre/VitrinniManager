@@ -39,8 +39,7 @@
                 }
             };
         }
-
-
+     
         $rootScope.$on("$routeChangeStart", function (event, next, current) { 
             if (next.chave === "valor") {
                 return;
