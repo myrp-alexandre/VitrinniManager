@@ -44,3 +44,5 @@ C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Negocio\o
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Negocio\obj\Debug\VitrinniManager.Negocio.pdb
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Negocio\bin\Debug\VitrinniManager.Compartilhado.dll
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Negocio\bin\Debug\VitrinniManager.Compartilhado.pdb
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Negocio\bin\Debug\VitrinniManager.Compartilhado.dll
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Negocio\bin\Debug\VitrinniManager.Compartilhado.pdb

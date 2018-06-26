@@ -123,6 +123,7 @@
     <Content Include="wwwroot\app\controllers\conta\login-controller.js" />
     <Content Include="wwwroot\app\controllers\conta\logout-controller.js" />
     <Content Include="wwwroot\app\controllers\conta\registrar-controller.js" />
+    <Content Include="wwwroot\app\controllers\endereco\endereco-controller.js" />
     <Content Include="wwwroot\app\controllers\home\home-controller.js" />
     <Content Include="wwwroot\app\controllers\loja\loja-controller.js" />
     <Content Include="wwwroot\app\factories\conta\recuperarSenha-factory .js" />

@@ -66,6 +66,7 @@ namespace VitrinniManager.Negocio.Servicos
             return loja;
         }
 
+
         public void Dispose()
         {
             _repositorio.Dispose();

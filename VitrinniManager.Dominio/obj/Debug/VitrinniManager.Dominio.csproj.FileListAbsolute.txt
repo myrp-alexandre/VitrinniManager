@@ -13,3 +13,12 @@ U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Dominio\obj\Debug\VitrinniManager
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Dominio\bin\Debug\VitrinniManager.Compartilhado.dll
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Dominio\bin\Debug\VitrinniManager.Compartilhado.pdb
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Dominio\obj\Debug\VitrinniManager.Dominio.csproj.CopyComplete
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\bin\Debug\VitrinniManager.Dominio.dll
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\bin\Debug\VitrinniManager.Dominio.pdb
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\bin\Debug\VitrinniManager.Compartilhado.dll
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\bin\Debug\VitrinniManager.Compartilhado.pdb
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\obj\Debug\VitrinniManager.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\obj\Debug\VitrinniManager.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\obj\Debug\VitrinniManager.Dominio.csproj.CopyComplete
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\obj\Debug\VitrinniManager.Dominio.dll
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Dominio\obj\Debug\VitrinniManager.Dominio.pdb

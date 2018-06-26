@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VitrinniManager.Compartilhado.Common.Replace
+﻿namespace VitrinniManager.Common.Replace
 {
-    class StringReplace
+    public class StringReplace
     {
         public static string Replace(string campo)
         {
-            return campo.Replace(".", "")
-                        .Replace("-", "")
-                        .Replace("(", "")
-                        .Replace(")", "")
-                        .Replace("_", "")
-                        .Replace(" ", "");
+            string retorno = string.Empty;
+            if (!string.IsNullOrEmpty(campo))
+            {
+                retorno = campo.Replace(".", "")
+                       .Replace("-", "")
+                       .Replace("(", "")
+                       .Replace(")", "")
+                       .Replace("_", "")
+                       .Replace(" ", "");
+
+            }
+            return retorno;
         }
     }
 }

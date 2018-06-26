@@ -4,3 +4,9 @@ U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniM
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csproj.CoreCompileInputs.cache
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.dll
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.pdb
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.dll
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.pdb
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csprojResolveAssemblyReference.cache
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csproj.CoreCompileInputs.cache
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.dll
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.pdb

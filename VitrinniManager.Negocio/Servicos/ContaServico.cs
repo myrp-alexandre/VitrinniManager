@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using VitrinniManager.Common.Replace;
 using VitrinniManager.Common.Validacao;
 using VitrinniManager.Compartilhado.Common.Email;

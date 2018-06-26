@@ -17,33 +17,12 @@
                 <br />
                 <div class="card">
                     <div class="card-header deep-orange lighten-1 white-text">
-                        Endereços
-                        <div class=""> <a><i class="fa fa-plus text-success" data-toggle="modal" data-target="#md_atualizar_endereco" title="Cadastrar endereço"></i> </a> </div>
+                        <a><i ng-show="vm.loja.enderecos.length < 3" class="fa fa-plus text-success" data-toggle="modal" data-target="#md_atualizar_endereco" title="Cadastrar endereço"></i> <span class="text-white">Endereços</span></a>
                     </div>
                     <div class="card-body">
-                        <table class="table  table-responsive" ng-show="vm.loja.enderecos.length">
-                            <tbody>
-                                <tr>
-                                    <th>CEP</th>
-                                    <th>Logradouro</th>
-                                    <th>Bairro</th>
-                                    <th>Localidade/UF</th>
-                                    <th> </th>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr ng-repeat="item in vm.loja.enderecos">
-                                    <td>{{item.cep}}</td>
-                                    <td>{{item.logradouro}}</td>
-                                    <td>{{item.bairro}}</td>
-                                    <td>{{item.localidade}}-{{item.uf}}</td>
-                                    <td>
-                                        <a><i class="fa fa-edit text-info" data-toggle="modal" data-target="#md_atualizar_endereco" title="Atualizar endereço" ng-click="vm.FilterEndereco(item.idEndereco)"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-               
+                        <ul class="list-group" ng-repeat="item in vm.loja.enderecos">
+                            <li class="list-group-item">{{item.logradouro}}, {{item.bairro}} {{item.localidade}}/{{item.uf}}</li>
+                        </ul>
                     </div>
                 </div>
             </div>

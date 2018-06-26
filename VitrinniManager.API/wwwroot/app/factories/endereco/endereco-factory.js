@@ -7,12 +7,16 @@
 
     function EnderecoFactory($http, SETTINGS, $rootScope) {
         return {
-            obterPorCEP: obterPorCEP
+            obterPorCEP: obterPorCEP,
+            Cadastrar: Cadastrar
         };
 
         function obterPorCEP(cep) {
             return $http.get('https://viacep.com.br/ws/' + cep + '/json/');
         }
 
+        function Cadastrar(endereco) {
+            return $http.post(SETTINGS.SERVICE_URL + 'api/loja/cadastrarEndereco', endereco, $rootScope.header);
+        }
     }
 })();

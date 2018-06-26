@@ -1,22 +1,16 @@
 ﻿(function () {
     'use strict';
-    angular.module('vitrinni_manager').controller('LojaController', LojaController);
+    angular.module('vitrinni_manager').controller('EnderecoController', LojaController);
 
-    LojaController.$inject = ['$scope', 'LojaFactory', 'EnderecoFactory', '$rootScope', 'SETTINGS', '$location', '$route'];
-    function LojaController($scope, LojaFactory, EnderecoFactory, $rootScope, SETTINGS, $location, $route) {
+    LojaController.$inject = ['$scope', 'EnderecoFactory', '$rootScope', 'SETTINGS', '$location', '$route'];
+    function LojaController($scope, EnderecoFactory, $rootScope, SETTINGS, $location, $route) {
         var vm = this;
 
         vm.loja = {};
 
-        vm.lojaAtualizar = {};
-
-        vm.endereco = [];
-
-        vm.obterLoja = obterLoja;
-        vm.atualizarLoja = atualizarLoja;
+        
         vm.obterEnderecoPorCep = obterEnderecoPorCep;
         vm.FilterEndereco = FilterEndereco;
-        vm.cadastrarEndereco = cadastrarEndereco;
 
 
 
@@ -49,23 +43,10 @@
                 });
         }
 
-        function cadastrarEndereco(endereco) {
-            EnderecoFactory.Cadastrar(endereco)
-                .then(function (response) {
-                    toastr.success("Endereço cadastrado.", 'Sucesso');
-                    $('#md_atualizar_endereco').modal('toggle');
-                    obterLoja($rootScope.token)
-                })
-                .catch(function (error) {
-                    toastr.error(error.data.Message, 'Erro');
-                });
-        }
-
-
         function obterEnderecoPorCep(cep) {
             EnderecoFactory.obterPorCEP(cep)
                 .then(function (response) {
-                    if (response.data.erro === true) {
+                    if (response.data.erro == true) {
                         toastr.warning("Cep não encontrado.", 'Erro');
                     } else {
                         vm.endereco = [];

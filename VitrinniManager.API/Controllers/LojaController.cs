@@ -17,10 +17,12 @@ namespace VitrinniManager.API.Controllers
     public class LojaController : BaseController
     {
         private readonly ILojaService _lojaServico;
+        private readonly IEnderecoService _enderecoServico;
 
         public LojaController()
         {
-             _lojaServico = new LojaServico();
+            _lojaServico = new LojaServico();
+            _enderecoServico = new EnderecoServico();
         }
 
         [HttpGet]
@@ -58,6 +60,24 @@ namespace VitrinniManager.API.Controllers
             try
             {
                 _lojaServico.atualizarLoja(loja);
+                return CreateResponse(HttpStatusCode.OK, "ok");
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("cadastrarEndereco")]
+        public Task<HttpResponseMessage> cadastrarEndereco(Endereco endereco)
+        {
+            try
+            {
+                var loja = _lojaServico.bucarPorEmail(User.Identity.Name);
+                endereco.idLoja = loja.idLoja;
+
+                _enderecoServico.cadastrarEndereco(endereco);
                 return CreateResponse(HttpStatusCode.OK, "ok");
             }
             catch (Exception ex)

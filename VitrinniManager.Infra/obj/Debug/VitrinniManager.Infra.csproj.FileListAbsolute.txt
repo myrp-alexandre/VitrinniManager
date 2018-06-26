@@ -42,3 +42,5 @@ C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Infra\obj
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Infra\obj\Debug\VitrinniManager.Infra.pdb
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Infra\bin\Debug\VitrinniManager.Compartilhado.dll
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Infra\bin\Debug\VitrinniManager.Compartilhado.pdb
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Infra\bin\Debug\VitrinniManager.Compartilhado.dll
+C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Infra\bin\Debug\VitrinniManager.Compartilhado.pdb
