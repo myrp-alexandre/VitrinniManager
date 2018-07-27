@@ -10,7 +10,6 @@ namespace VitrinniManager.Dominio.Modelos
     {
         protected Loja() { }
 
-
         [Key]
         public int idLoja { get; set; }
 
@@ -37,8 +36,6 @@ namespace VitrinniManager.Dominio.Modelos
         public string tokenSenha { get; set; }
 
         public ICollection<Endereco> Enderecos { get; set; }
-
-      
 
     }
 }

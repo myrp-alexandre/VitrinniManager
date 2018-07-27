@@ -35,7 +35,6 @@ namespace VitrinniManager.Dominio.Modelos
 
         public virtual Loja Loja { get; set; }
 
-
         public void ValidaEndereco(Endereco endereco)
         {
             AssertionConcern.AssertArgumentNotNull(endereco.CEP, "CEP Obrigatório.");

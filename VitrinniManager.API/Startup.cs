@@ -25,9 +25,13 @@ namespace VitrinniManager.API
             ConfigureWebApi(config);
 
 
+ 
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
-            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            //config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
+
 
 
 
@@ -52,16 +56,6 @@ namespace VitrinniManager.API
 
         private void ConfigureWebApi(HttpConfiguration config)
         {
-            //var formatters = config.Formatters;
-            //formatters.Remove(formatters.XmlFormatter);
-
-            //var jsonSettings = formatters.JsonFormatter.SerializerSettings;
-            //jsonSettings.Formatting = Formatting.Indented;
-            //jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
-            //formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
-
-
             //configurando rotas
             config.MapHttpAttributeRoutes();
 

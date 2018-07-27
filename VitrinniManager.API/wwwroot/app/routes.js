@@ -23,6 +23,10 @@
             controller: 'LojaController',
             controllerAs: 'vm',
             templateUrl: 'wwwroot/pages/loja/minha-loja.html'
+        }).when('/departamento/lista-departamentos', {
+            controller: 'DepartamentoController',
+            controllerAs: 'vm',
+            templateUrl: 'wwwroot/pages/departamento/lista-departamentos.html'
         }).when('/recuperarSenha/:id/token/:token', {
             controller: 'RecuperarSenhaController',
             controllerAs: 'vm',

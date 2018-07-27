@@ -54,6 +54,7 @@
                 .then(function (response) {
                     toastr.success("Endereço cadastrado.", 'Sucesso');
                     $('#md_atualizar_endereco').modal('toggle');
+                    vm.endereco = [];
                     obterLoja($rootScope.token)
                 })
                 .catch(function (error) {
