@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\CategoriaServico.cs" />
     <Compile Include="Servicos\ContaServico.cs" />
     <Compile Include="Servicos\DepartamentoServico.cs" />
     <Compile Include="Servicos\EnderecoServico .cs" />

@@ -10,3 +10,9 @@ C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartil
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csproj.CoreCompileInputs.cache
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.dll
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.pdb
+D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.dll
+D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.pdb
+D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csprojAssemblyReference.cache
+D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csproj.CoreCompileInputs.cache
+D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.dll
+D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.pdb

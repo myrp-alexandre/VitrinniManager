@@ -17,14 +17,14 @@ namespace VitrinniManager.API.Controllers
     public class DepartamentoController : BaseController
     {
         private readonly ILojaService _lojaServico;
-        private readonly IEnderecoService _enderecoServico;
         private readonly IDepartamentoService _departamentoServico;
+        private readonly ICategoriaService _categoriaServico;
 
         public DepartamentoController()
         {
             _lojaServico = new LojaServico();
-            _enderecoServico = new EnderecoServico();
             _departamentoServico = new DepartamentoServico();
+            _categoriaServico =  new CategoriaServico();
         }
 
         [HttpGet]
@@ -44,14 +44,15 @@ namespace VitrinniManager.API.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("atualizarLoja")]
-        public Task<HttpResponseMessage> atualizarLoja(Loja loja)
+        [HttpGet]
+        [Route("obterCategorias")]
+        public Task<HttpResponseMessage> obterCategorias()
         {
             try
             {
-                _lojaServico.atualizarLoja(loja);
-                return CreateResponse(HttpStatusCode.OK, "ok");
+                var categorias = _categoriaServico.lista();
+
+                return CreateResponse(HttpStatusCode.OK, categorias);
             }
             catch (Exception ex)
             {
@@ -59,16 +60,32 @@ namespace VitrinniManager.API.Controllers
             }
         }
 
+
+
+        //[HttpPut]
+        //[Route("atualizarLoja")]
+        //public Task<HttpResponseMessage> atualizarLoja(Loja loja)
+        //{
+        //    try
+        //    {
+        //        _lojaServico.atualizarLoja(loja);
+        //        return CreateResponse(HttpStatusCode.OK, "ok");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+        //    }
+        //}
+
         [HttpPost]
-        [Route("cadastrarEndereco")]
-        public Task<HttpResponseMessage> cadastrarEndereco(Endereco endereco)
+        [Route("cadastrarDepartamento")]
+        public Task<HttpResponseMessage> cadastrarDepartamento(Departamento departamento)
         {
             try
             {
                 var loja = _lojaServico.bucarPorEmail(User.Identity.Name);
-                endereco.idLoja = loja.idLoja;
-
-                _enderecoServico.cadastrarEndereco(endereco);
+  
+                //_enderecoServico.cadastrarEndereco(endereco);
                 return CreateResponse(HttpStatusCode.OK, "ok");
             }
             catch (Exception ex)
