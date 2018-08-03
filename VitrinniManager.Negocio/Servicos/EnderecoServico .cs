@@ -49,9 +49,12 @@ namespace VitrinniManager.Negocio.Servicos
              Endereco end = new Endereco(endereco.idEndereco, endereco.idLoja, endereco.CEP, endereco.logradouro, endereco.complemento, endereco.localidade, endereco.bairro, endereco.UF);
              end.ValidaEndereco(end);
 
-
-
             _repositorio.cadastrarEndereco(end);
+        }
+
+        public void excluirEndereco(Endereco endereco)
+        {
+            _repositorio.excluirEndereco(endereco);
         }
 
         public void Dispose()
@@ -59,6 +62,6 @@ namespace VitrinniManager.Negocio.Servicos
             _repositorio.Dispose();
         }
 
-        
+    
     }
 }

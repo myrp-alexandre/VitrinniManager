@@ -14,5 +14,6 @@ namespace VitrinniManager.Dominio.Contratos
         
         void atualizarEndereco(Endereco endereco);
         void cadastrarEndereco(Endereco endereco);
+        void excluirEndereco(Endereco endereco);
     }
 }

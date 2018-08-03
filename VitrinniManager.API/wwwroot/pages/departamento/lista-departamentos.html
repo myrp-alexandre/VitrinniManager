@@ -3,7 +3,7 @@
         <h3 class="card-header deep-orange lighten-1 white-text text-center font-weight-bold text-uppercase py-4">Departamentos</h3>
         <div class="card-body">
             <div id="table" class="table-editable">
-                <span class="table-add float-right mb-3 mr-2"><a class="text-success"><i class="fa fa-plus fa-2x" aria-hidden="true" data-toggle="modal" data-target="#md_cadastrar_departamento"></i></a></span>
+                <span class="table-add float-right mb-3 mr-2"><a class="text-success"><i ng-click="vm.LimparForm()" class="fa fa-plus fa-2x" aria-hidden="true" data-toggle="modal" data-target="#md_cadastrar_departamento"></i></a></span>
                 <table class="table table-bordered table-responsive-md table-striped text-center">
                     <tr>
                         <th class="text-center">#</th>
@@ -11,12 +11,12 @@
                         <th class="text-center">Categoria</th>
                         <th class="text-center">Opção</th>
                     </tr>
-                    <tr ng-repeat="departamento in vm.departamentos">
+                    <tr ng-repeat="departamento in vm.departamentos | orderBy:'categoria.descricaoCategoria'">
                         <td class="pt-3-half">{{departamento.idDepartamento}}</td>
                         <td class="pt-3-half">{{departamento.departamento}}</td>
                         <td class="pt-3-half">{{departamento.categoria.descricaoCategoria}}</td>
                         <td>
-                            <span class="table-remove"><button type="button" class="btn btn-info btn-rounded btn-sm my-0">Alterar</button></span>
+                            <span><button type="button" class="btn btn-info btn-rounded btn-sm my-0" aria-hidden="true" data-toggle="modal" data-target="#md_alterar_departamento" ng-click="vm.FilterDepartamento(departamento.idDepartamento)">Alterar</button></span>
                         </td>
                     </tr>
 
@@ -36,14 +36,12 @@
             </div>
             <div class="modal-body">
                 <form name="departamentoForm" method="post">
-                   
                     <div class="row">
                         <div class="col">
                             <div class="md-form">
                                 <input ng-model="vm.departamento.departamento"
-                                       ng-minlength="1"
-                                       ng-maxlength="250"
-                                       type="text" name="departamento"
+                                       type="text"
+                                       name="departamento"
                                        class="form-control"
                                        required>
                                 <label for="lbl_departamento" class="active">Departamento</label>
@@ -54,15 +52,59 @@
                             </div>
 
                             <select class="md-form form-control" ng-model="vm.departamento.idCategoria" name="categoria">
-                                <option ng-repeat="option in vm.categorias" value="{{option.idCategoria}}">{{option.descricaoCategoria}}</option>
                                 <option value="" disabled selected>Selecione a Categoria</option>
+                                <option ng-repeat="option in vm.categorias" value="{{option.idCategoria}}">{{option.descricaoCategoria}}</option>
                             </select>
+
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary btn-sm" ng-disabled="!vm.departamento.departamento || !vm.departamento.idCategoria" ng-click="vm.cadastrarDepartamento(vm.departamento)">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade " id="md_alterar_departamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Alterar departamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="departamentoForm" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.departamento.departamento"
+                                       type="text"
+                                       name="departamento"
+                                       class="form-control"
+                                       required>
+                                <label for="lbl_departamento" class="active">Departamento</label>
+                                <div ng-show="departamentoForm.departamento.$invalid && departamentoForm.departamento.$dirty"
+                                     class="alert alert-danger">
+                                    Departamento inválido
+                                </div>
+                            </div>
+
+                            <select class="md-form form-control" ng-model="vm.departamento.idCategoria" name="categoria">
+                                <option value="" disabled selected>Selecione a Categoria</option>
+                                <option ng-repeat="option in vm.categorias" value="{{option.idCategoria}}" ng-selelected="{{ vm.departamento.idCategoria == option.idCategoria }}">{{option.descricaoCategoria}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" ng-disabled="!vm.departamento.departamento || !vm.departamento.idCategoria" ng-click="vm.alterarDepartamento(vm.departamento)">Salvar</button>
             </div>
         </div>
     </div>

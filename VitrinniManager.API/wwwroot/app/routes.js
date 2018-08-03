@@ -27,6 +27,14 @@
             controller: 'DepartamentoController',
             controllerAs: 'vm',
             templateUrl: 'wwwroot/pages/departamento/lista-departamentos.html'
+        }).when('/produto/meus-produtos', {
+            controller: 'ProdutoController',
+            controllerAs: 'vm',
+            templateUrl: 'wwwroot/pages/produto/meus-produtos.html'
+        }).when('/produto/cadastrar-produto', {
+            controller: 'ProdutoController',
+            controllerAs: 'vm',
+            templateUrl: 'wwwroot/pages/produto/cadastrar-produto.html'
         }).when('/recuperarSenha/:id/token/:token', {
             controller: 'RecuperarSenhaController',
             controllerAs: 'vm',

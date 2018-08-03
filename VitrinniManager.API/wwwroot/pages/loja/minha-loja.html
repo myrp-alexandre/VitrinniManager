@@ -21,7 +21,7 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group" ng-repeat="item in vm.loja.enderecos">
-                            <li class="list-group-item">{{item.logradouro}}, {{item.bairro}} {{item.localidade}}/{{item.uf}}</li>
+                            <li class="list-group-item">{{item.logradouro}}, {{item.bairro}} {{item.localidade}}/{{item.uf}} <a ng-click="vm.excluirEndereco(item.idEndereco)"><i class="fa fa-remove text-danger" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -114,10 +114,17 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="md-form">
-                            <input ng-model="vm.lojaAtualizar.urlLoja" type="text" id="txt_urlloja" class="form-control">
-                            <label for="lbl_urlloja" class="active">URL</label>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><a><i ng-click="vm.verificarNomeLoja(vm.lojaAtualizar.urlLoja)">verificar disponibilidade do nome</i></a></div>
+                            </div>
+                            <input ng-model="vm.lojaAtualizar.urlLoja" type="text" id="txt_urlloja" class="form-control" placeholder="Nome da loja"><br />
                         </div>
+                        <small><b> Link da minha loja:</b></small> <small class="text-info">http://vitrinniweb-com.umbler.net/{{vm.lojaAtualizar.urlLoja}}</small><br />
+                        <div class="alert-warning text-center" ng-show="vm.aviso">
+                            <small><b>Atenção:</b> {{ vm.aviso}}</small>
+                        </div>
+                        <br />
                     </div>
                 </div>
             </div>

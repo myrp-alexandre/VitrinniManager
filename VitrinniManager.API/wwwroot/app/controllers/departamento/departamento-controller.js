@@ -17,6 +17,9 @@
         vm.obterDepartamentos = obterDepartamentos;
         vm.obterCategorias = obterCategorias;
         vm.cadastrarDepartamento = cadastrarDepartamento;
+        vm.alterarDepartamento = alterarDepartamento;
+        vm.FilterDepartamento = FilterDepartamento;
+        vm.LimparForm = LimparForm;
 
 
         init();
@@ -53,12 +56,39 @@
                 .then(function (response) {
                     toastr.success("Departamento cadastrado.", 'Sucesso');
                     $('#md_cadastrar_departamento').modal('toggle');
-                    vm.departamento = {};
                     obterDepartamentos();
                 })
                 .catch(function (error) {
                     toastr.error(error.data.Message, 'Erro');
                 });
+        }
+
+        function alterarDepartamento(departamento) {
+            DepartamentoFactory.Alterar(departamento)
+                .then(function (response) {
+                    toastr.success("Departamento Alterado.", 'Sucesso');
+                    $('#md_alterar_departamento').modal('toggle');
+                    obterDepartamentos();
+                })
+                .catch(function (error) {
+                    toastr.error(error.data.Message, 'Erro');
+                });
+        }
+        function FilterDepartamento(id) {
+            angular.forEach(vm.departamentos, function (values, key) {
+                if (values.idDepartamento === id) {
+                    vm.departamento.idDepartamento = values.idDepartamento;
+                    vm.departamento.departamento = values.departamento;
+                    vm.departamento.idCategoria = String(values.idCategoria);
+                }
+            });
+        }
+
+        function LimparForm() {
+            vm.departamento = {
+                departamento: null,
+                idCategoria: null
+            };
         }
     };
 }))();

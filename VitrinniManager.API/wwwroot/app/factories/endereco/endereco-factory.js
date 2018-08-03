@@ -8,7 +8,8 @@
     function EnderecoFactory($http, SETTINGS, $rootScope) {
         return {
             obterPorCEP: obterPorCEP,
-            Cadastrar: Cadastrar
+            Cadastrar: Cadastrar,
+            Excluir: Excluir
         };
 
         function obterPorCEP(cep) {
@@ -17,6 +18,10 @@
 
         function Cadastrar(endereco) {
             return $http.post(SETTINGS.SERVICE_URL + 'api/loja/cadastrarEndereco', endereco, $rootScope.header);
+        }
+
+        function Excluir(id) {
+            return $http.delete(SETTINGS.SERVICE_URL + 'api/loja/excluirEndereco/' + id, $rootScope.header);
         }
     }
 })();

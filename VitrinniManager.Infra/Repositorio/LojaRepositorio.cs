@@ -24,11 +24,13 @@ namespace VitrinniManager.Infra.Repositorio
             return loja;
         }
 
+    
         public Loja BuscarPorCPF_CNPJ(string cpf_cnpj)
         {
             var loja = _context.Lojas.Where(x => x.CPFCNPJ == cpf_cnpj).FirstOrDefault();
             return loja;
         }
+
 
         public Loja BuscarPorEmailComEndereco(string email)
         {
@@ -45,6 +47,12 @@ namespace VitrinniManager.Infra.Repositorio
             if (loja != null)
                 _context.Entry(loja).Collection(p => p.Enderecos).Load();
 
+            return loja;
+        }
+
+        public Loja BuscarPorNome(string nome)
+        {
+            var loja = _context.Lojas.Where(x => x.urlLoja.Contains(nome)).FirstOrDefault();
             return loja;
         }
 

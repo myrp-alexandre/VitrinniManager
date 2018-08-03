@@ -10,6 +10,7 @@
 
         
         vm.obterEnderecoPorCep = obterEnderecoPorCep;
+       
         vm.FilterEndereco = FilterEndereco;
 
 
@@ -54,6 +55,8 @@
                     }
                 })
         }
+
+       
 
         function FilterEndereco(id) {
             angular.forEach(vm.loja.enderecos, function (values, key) {

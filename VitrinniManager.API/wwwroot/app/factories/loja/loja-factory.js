@@ -9,6 +9,7 @@
         return {
             obterLoja: obterLoja,
             atualizarLoja: atualizarLoja,
+            verificarNomeLoja: verificarNomeLoja
         };
 
         function obterLoja(token) {
@@ -21,7 +22,12 @@
         }
 
         function atualizarLoja(loja) {
+            
             return $http.put(SETTINGS.SERVICE_URL + 'api/loja/atualizarLoja', loja, $rootScope.header);
+        }
+
+        function verificarNomeLoja(nome) {
+            return $http.get(SETTINGS.SERVICE_URL + 'api/loja/verificarNomeLoja/' + nome, $rootScope.header);
         }
     }
 })();

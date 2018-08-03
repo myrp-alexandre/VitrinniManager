@@ -127,12 +127,14 @@
     <Content Include="wwwroot\app\controllers\endereco\endereco-controller.js" />
     <Content Include="wwwroot\app\controllers\home\home-controller.js" />
     <Content Include="wwwroot\app\controllers\loja\loja-controller.js" />
+    <Content Include="wwwroot\app\controllers\produto\produto-controller.js" />
     <Content Include="wwwroot\app\factories\conta\recuperarSenha-factory .js" />
     <Content Include="wwwroot\app\factories\conta\registrar-factory.js" />
     <Content Include="wwwroot\app\factories\conta\login-factory.js" />
     <Content Include="wwwroot\app\factories\departamento\departamento-factory.js" />
     <Content Include="wwwroot\app\factories\endereco\endereco-factory.js" />
     <Content Include="wwwroot\app\factories\loja\loja-factory.js" />
+    <Content Include="wwwroot\app\factories\produto\produto-factory.js" />
     <Content Include="wwwroot\app\interceptors\erro-interceptor.js" />
     <Content Include="wwwroot\app\interceptors\spinner-interceptor.js" />
     <Content Include="wwwroot\app\routes.js" />
@@ -141,6 +143,7 @@
     <Content Include="wwwroot\assets\css\bootstrap.min.css" />
     <Content Include="wwwroot\assets\css\mdb.css" />
     <Content Include="wwwroot\assets\css\mdb.min.css" />
+    <Content Include="wwwroot\assets\css\ng-img-crop.css" />
     <Content Include="wwwroot\assets\css\style.css" />
     <Content Include="wwwroot\assets\css\style.min.css" />
     <Content Include="wwwroot\assets\js\angular-route.js" />
@@ -151,7 +154,10 @@
     <Content Include="wwwroot\assets\js\jquery-3.3.1.min.js" />
     <Content Include="wwwroot\assets\js\mdb.js" />
     <Content Include="wwwroot\assets\js\mdb.min.js" />
+    <Content Include="wwwroot\assets\js\ng-img-crop.js" />
     <Content Include="wwwroot\assets\js\popper.min.js" />
+    <Content Include="wwwroot\assets\outros\porsche-gt3-rs-rt-026.jpg" />
+    <Content Include="wwwroot\assets\outros\porsche.jpg" />
     <Content Include="wwwroot\assets\outros\Spinner.gif" />
     <Content Include="wwwroot\pages\conta\login.html" />
     <Content Include="wwwroot\pages\conta\registrar.html" />
@@ -159,6 +165,9 @@
     <Content Include="wwwroot\pages\home\index.html" />
     <Content Include="wwwroot\pages\conta\recuperar-senha.html" />
     <Content Include="wwwroot\pages\loja\minha-loja.html" />
+    <Content Include="wwwroot\pages\produto\alterar-produto.html" />
+    <Content Include="wwwroot\pages\produto\meus-produtos.html" />
+    <Content Include="wwwroot\pages\produto\cadastrar-produto.html" />
     <Content Include="wwwroot\pages\shared\footer.html" />
     <Content Include="wwwroot\pages\shared\header.html" />
   </ItemGroup>

@@ -24,7 +24,7 @@ namespace VitrinniManager.API.Controllers
         {
             _lojaServico = new LojaServico();
             _departamentoServico = new DepartamentoServico();
-            _categoriaServico =  new CategoriaServico();
+            _categoriaServico = new CategoriaServico();
         }
 
         [HttpGet]
@@ -60,32 +60,32 @@ namespace VitrinniManager.API.Controllers
             }
         }
 
-
-
-        //[HttpPut]
-        //[Route("atualizarLoja")]
-        //public Task<HttpResponseMessage> atualizarLoja(Loja loja)
-        //{
-        //    try
-        //    {
-        //        _lojaServico.atualizarLoja(loja);
-        //        return CreateResponse(HttpStatusCode.OK, "ok");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-        //    }
-        //}
-
         [HttpPost]
         [Route("cadastrarDepartamento")]
         public Task<HttpResponseMessage> cadastrarDepartamento(Departamento departamento)
         {
             try
             {
-                var loja = _lojaServico.bucarPorEmail(User.Identity.Name);
-  
-                //_enderecoServico.cadastrarEndereco(endereco);
+                departamento.idLoja = _lojaServico.bucarPorEmail(User.Identity.Name).idLoja;
+                _departamentoServico.cadastrarDepartamento(departamento);
+
+                return CreateResponse(HttpStatusCode.OK, "ok");
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("alterarDepartamento")]
+        public Task<HttpResponseMessage> alterarDepartamento(Departamento departamento)
+        {
+            try
+            {
+                departamento.idLoja = _lojaServico.bucarPorEmail(User.Identity.Name).idLoja;
+                _departamentoServico.atualizarDepartamento(departamento);
+
                 return CreateResponse(HttpStatusCode.OK, "ok");
             }
             catch (Exception ex)

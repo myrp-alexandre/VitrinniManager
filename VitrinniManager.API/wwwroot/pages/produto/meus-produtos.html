@@ -1,0 +1,34 @@
+﻿<div class="card margin_top" ng-show="token_loja">
+    <div class="card">
+        <h3 class="card-header deep-orange lighten-1 white-text text-center font-weight-bold text-uppercase py-4">meus produtos</h3>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+                <span class="table-add float-right mb-3 mr-2"><a class="text-success"></a></span>
+                <span class="table-add float-right mb-3 mr-2"> <a class="text-success" href="#!/produto/cadastrar-produto"><i class="fa fa-plus fa-2x"></i></a></span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <tr>
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Produto</th>
+                        <th class="text-center">Ativo</th>
+                        <th class="text-center">Departamento</th>
+                        <th class="text-center">Preço</th>
+                        <th class="text-center">Em Estoque</th>
+                        <th class="text-center">Opções</th>
+                    </tr>
+                    <tr ng-repeat="departamento in vm.departamentos | orderBy:'categoria.descricaoCategoria'">
+                        <td class="pt-3-half">{{departamento.idDepartamento}}</td>
+                        <td class="pt-3-half">{{departamento.departamento}}</td>
+                        <td class="pt-3-half">{{departamento.categoria.descricaoCategoria}}</td>
+                        <td>
+                            <span><button type="button" class="btn btn-info btn-rounded btn-sm my-0" aria-hidden="true" data-toggle="modal" data-target="#md_alterar_departamento" ng-click="vm.FilterDepartamento(departamento.idDepartamento)">Alterar</button></span>
+
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

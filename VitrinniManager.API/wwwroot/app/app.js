@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('vitrinni_manager', ["ngRoute"])
+    angular.module('vitrinni_manager', ["ngRoute", 'ngImgCrop'])
         .directive("loader", function ($rootScope) {
             return function ($scope, element, attrs) {
                 $scope.$on("loader_show", function () {

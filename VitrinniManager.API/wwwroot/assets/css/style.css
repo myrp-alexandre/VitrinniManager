@@ -26,3 +26,20 @@
     margin-left:-100px;
     display: block;
 }
+
+.cropArea {
+    border:dotted;
+    overflow: hidden;
+    width: 500px;
+    height: 350px;
+}
+
+.cropAreaResult {
+    
+    overflow: hidden;
+    width: 500px;
+    height: 350px;
+    text-align:center;
+    padding-top:30px;
+}
+

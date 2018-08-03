@@ -66,6 +66,12 @@ namespace VitrinniManager.Negocio.Servicos
             return loja;
         }
 
+        public Loja bucarPorNome(string nome)
+        {
+            var loja = _repositorio.BuscarPorNome(nome);
+
+            return loja;
+        }
 
         public void Dispose()
         {

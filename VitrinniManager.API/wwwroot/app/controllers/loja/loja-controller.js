@@ -15,10 +15,12 @@
         vm.obterLoja = obterLoja;
         vm.atualizarLoja = atualizarLoja;
         vm.obterEnderecoPorCep = obterEnderecoPorCep;
+        vm.excluirEndereco = excluirEndereco;
         vm.FilterEndereco = FilterEndereco;
         vm.cadastrarEndereco = cadastrarEndereco;
+        vm.verificarNomeLoja = verificarNomeLoja;
 
-
+        vm.aviso == '';
 
         init();
 
@@ -73,6 +75,31 @@
                         vm.endereco.push(response.data);
                     }
                 })
+        }
+
+        function excluirEndereco(id) {
+            EnderecoFactory.Excluir(id)
+                .then(function (response) {
+                    toastr.success("Endereço excluido.", 'Sucesso');
+                    obterLoja($rootScope.token)
+                })
+                .catch(function (error) {
+                    toastr.error(error.data.Message, 'Erro');
+                });
+        }
+
+        function verificarNomeLoja(nome) {
+            LojaFactory.verificarNomeLoja(nome)
+                .then(function (response) {
+                    if (response.data == null) {
+                        vm.aviso = 'Nome da loja disponível.'
+                    } else {
+                        vm.aviso = 'Nome da loja não disponível.'
+                    }
+                })
+                .catch(function (error) {
+                    toastr.error(error.data.Message, 'Erro');
+                });
         }
 
         function FilterEndereco(id) {

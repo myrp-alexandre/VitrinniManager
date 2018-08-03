@@ -38,6 +38,12 @@ namespace VitrinniManager.Infra.Repositorio
             _context.SaveChanges();
         }
 
+        public void excluirEndereco(Endereco endereco)
+        {
+            _context.Entry(endereco).State = EntityState.Deleted;
+            _context.SaveChanges();
+        }
+
         public void Dispose()
         {
             _context.Dispose();

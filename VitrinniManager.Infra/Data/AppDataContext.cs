@@ -17,6 +17,8 @@ namespace VitrinniManager.Infra.Data
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Imagem> Imagens { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
 
     }
 }

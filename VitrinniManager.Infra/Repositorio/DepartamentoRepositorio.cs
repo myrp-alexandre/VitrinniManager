@@ -15,6 +15,12 @@ namespace VitrinniManager.Infra.Repositorio
             _context = context;
         }
 
+        public Departamento BuscarPorID(int idDepartamento)
+        {
+            var departamento = _context.Departamentos.Where(x => x.idDepartamento == idDepartamento).FirstOrDefault();
+            return departamento;
+        }
+
         public IEnumerable<Departamento> buscarPorIDLoja(int idLoja)
         {
             var departamentos = _context.Departamentos.Where(x => x.idLoja == idLoja).Include(dep => dep.Categoria).ToList();

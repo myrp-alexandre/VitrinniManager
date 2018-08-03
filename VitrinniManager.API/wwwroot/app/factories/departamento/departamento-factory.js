@@ -9,7 +9,8 @@
         return {
             obterDepartamentos: obterDepartamentos,
             obterCategorias: obterCategorias,
-            Cadastrar: Cadastrar
+            Cadastrar: Cadastrar,
+            Alterar: Alterar
         };
 
         function obterDepartamentos() {
@@ -22,6 +23,10 @@
 
         function Cadastrar(departamento) {
             return $http.post(SETTINGS.SERVICE_URL + 'api/departamento/cadastrarDepartamento', departamento, $rootScope.header);
+        }
+
+        function Alterar(departamento) {
+            return $http.put(SETTINGS.SERVICE_URL + 'api/departamento/alterarDepartamento', departamento, $rootScope.header);
         }
     }
 })();

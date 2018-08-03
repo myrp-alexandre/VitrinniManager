@@ -85,5 +85,37 @@ namespace VitrinniManager.API.Controllers
                 return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+
+        [HttpDelete]
+        [Route("excluirEndereco/{id}")]
+        public Task<HttpResponseMessage> excluirEndereco(string id)
+        {
+            try
+            {
+                var endereco = _enderecoServico.buscarPorID(Convert.ToInt32(id));
+                _enderecoServico.excluirEndereco(endereco);
+
+                return CreateResponse(HttpStatusCode.OK, "ok");
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("verificarNomeLoja/{nome}")]
+        public Task<HttpResponseMessage> verificarNomeLoja(string nome)
+        {
+            try
+            {
+                var loja = _lojaServico.bucarPorNome(nome);
+                return CreateResponse(HttpStatusCode.OK, loja);
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
     }
 }

@@ -18,6 +18,17 @@ namespace VitrinniManager.Negocio.Servicos
         }
 
 
+        public Departamento bucarPorID(int idDepartamento)
+        {
+            var departamento = _repositorio.BuscarPorID(idDepartamento);
+
+            if (departamento == null)
+                throw new Exception("Departamento não encontrado.");
+
+            return departamento;
+        }
+
+
         public IEnumerable<Departamento> buscarPorIDLoja(int idLoja)
         {
             var departamentos = _repositorio.buscarPorIDLoja(idLoja);
@@ -30,12 +41,23 @@ namespace VitrinniManager.Negocio.Servicos
 
         public void cadastrarDepartamento(Departamento departamento)
         {
-            throw new NotImplementedException();
+            Departamento d = new Departamento(departamento.departamento, departamento.idCategoria, departamento.idLoja);
+            d.ValidaDepartamento(departamento);
+
+            _repositorio.cadastrarDepartamento(d);
         }
 
         public void atualizarDepartamento(Departamento departamento)
         {
-            throw new NotImplementedException();
+            var objDepartamento = _repositorio.BuscarPorID(departamento.idDepartamento);
+            if (objDepartamento == null)
+                throw new Exception("Departamento não encontrado.");
+
+            objDepartamento.departamento = departamento.departamento;
+            objDepartamento.idCategoria = departamento.idCategoria;
+       
+
+            _repositorio.atualizarDepartamento(objDepartamento);
         }
 
 
