@@ -11,11 +11,18 @@
         function init() {
             obterDepartamentos();
             obterCategorias();
-            
+
         }
 
         vm.imagem = '';
         vm.imagemCortada = '';
+
+        vm.departamento = {
+            departamento: null,
+            idCategoria: null
+        };
+
+        vm.categorias = [];
 
         vm.produto = {
             idProduto: 0,
@@ -27,24 +34,24 @@
             codigoProdutoFornecedor: '',
             tokenProduto: '',
             especificacao: '',
-            ativo: '',
+            ativo: false,
             Altura: '',
             largura: '',
             comprimento: '',
             peso: '',
+            servico: '',
             estoque: {
-                quantidade: 0,
+                quantidade: '',
                 opcao: '',
                 mesmoZerado: false
             }
 
         };
-  
-        vm.categorias = [];
 
         vm.obterCategorias = obterCategorias;
         vm.obterDepartamentos = obterDepartamentos;
         vm.cadastrarDepartamento = cadastrarDepartamento;
+        vm.cadastrarProduto = cadastrarProduto;
 
         function obterDepartamentos() {
             DepartamentoFactory.obterDepartamentos()
@@ -80,6 +87,16 @@
                 });
         }
 
+        function cadastrarProduto(produto) {
+            ProdutoFactory.Cadastrar(produto)
+                .then(function (response) {
+                    toastr.success("Produto cadastrado.", 'Sucesso');
+                    $location.path('/produto/meus-produtos');
+                })
+                .catch(function (error) {
+                    toastr.error(error.data.Message, 'Erro');
+                });
+        }
 
         var handleFileSelect = function (evt) {
             var file = evt.currentTarget.files[0];

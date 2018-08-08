@@ -1,0 +1,114 @@
+﻿<div class="card margin_top" ng-show="token_loja">
+    <div class="card">
+        <h3 class="card-header deep-orange lighten-1 white-text text-center font-weight-bold text-uppercase py-4">cadastro</h3>
+        <div class="card-body">
+            {{vm.produto}}
+            <!--área de tipo de anúncio-->
+            <section>
+                <div class="row">
+                    <div class="col-md-8 mb-md-0 mb-5">
+                        <label>Selecione o tipo de anúncio</label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultChecked" name="anuncio" value="0" ng-model="vm.produto.servico">
+                            <label class="custom-control-label" for="defaultChecked">Produto</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked" value="1" ng-model="vm.produto.servico" name="anuncio">
+                            <label class="custom-control-label" for="defaultUnchecked">Serviço</label>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!--área de cadastro-->
+            <section>
+                <span ng-show="vm.produto.servico === '0'" ng-include="'wwwroot/pages/produto/_produto.html'"></span>
+                <span ng-show="vm.produto.servico === '1'" ng-include="'wwwroot/pages/produto/_servico.html'"></span>
+
+                <br />
+                <div class="card" ng-show="vm.produto.servico === '0' || vm.produto.servico === '1'">
+                    <div class="card-header">Imagens</div>
+                    <div class="card-body">
+                        <div>
+                            <div class="row col-md-12">
+                                <input nv-file-select uploader="uploader" type="file" name="fileInput" id="fileInput" />
+                            </div>
+                            <div class="row col-md-12">
+                                <div class="row col-md-4">
+                                    <span class="font-weight-bold">Imagen Original</span>
+                                </div>
+                                <div class="col-md-4" style="margin-left:30px">
+                                    <span class="font-weight-bold">Imagen Redefinida</span>
+                                </div>
+                            </div>
+                            <div class="row col-md-12">
+                                <div class="col-md-4 img-thumbnail">
+                                    <img-crop image="vm.imagem" result-image="vm.imagemCortada" area-type="square" result-image-size="300"></img-crop>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail">
+                                </div>
+                            </div>
+                            <small class="text-danger font-weight-bold">*Antes de enviar verifique se a imagen esta de acordo com o desejado.</small><br />
+                            <button class="btn btn-success btn-sm"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Enviar</button>
+                            <br />
+                            <br />
+                            <div>
+                                <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
+                                <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
+                                <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
+                                <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
+                                <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="md_cadastrar_departamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar departamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="departamentoForm" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.departamento.departamento"
+                                       type="text"
+                                       name="departamento"
+                                       class="form-control"
+                                       required>
+                                <label for="lbl_departamento" class="active">Departamento</label>
+                                <div ng-show="departamentoForm.departamento.$invalid && departamentoForm.departamento.$dirty"
+                                     class="alert alert-danger">
+                                    Departamento inválido
+                                </div>
+                            </div>
+
+                            <select class="md-form form-control" ng-model="vm.departamento.idCategoria" name="categoria">
+                                <option value="" disabled selected>Selecione a Categoria</option>
+                                <option ng-repeat="option in vm.categorias" value="{{option.idCategoria}}">{{option.descricaoCategoria}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" ng-disabled="!vm.departamento.departamento || !vm.departamento.idCategoria" ng-click="vm.cadastrarDepartamento(vm.departamento)">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

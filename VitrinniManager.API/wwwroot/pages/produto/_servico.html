@@ -1,0 +1,70 @@
+﻿<br />
+<div class="card">
+    <div class="card-header">Dados serviço</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <select class="form-control" ng-model="vm.produto.idDepartamento" name="departamento">
+                    <option value="" disabled selected>Selecione o departamento</option>
+                    <option ng-repeat="option in vm.departamentos" value="{{option.idDepartamento}}">{{option.departamento}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <span class="table-add"><a class="text-success"><i class="fa fa-plus fa-2x" aria-hidden="true" data-toggle="modal" data-target="#md_cadastrar_departamento"></i></a></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <input ng-model="vm.produto.descricao"
+                           type="text"
+                           id="descricao"
+                           name="descricao"
+                           class="form-control">
+                    <label for="subject" class="">Nome do serviço</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <input ng-model="vm.produto.especificacao"
+                           type="text"
+                           id="descricao"
+                           name="descricao"
+                           class="form-control">
+                    <label for="subject" class="">Descrição do serviço</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="md-form mb-0">
+                    <input ng-model="vm.produto.valorPublicoProduto"
+                           type="text"
+                           id="descricao"
+                           name="descricao"
+                           class="form-control">
+                    <label for="subject" class="">Valor do serviço</label>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-8 mb-md-0 mb-5">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ativo" ng-model="vm.produto.ativo" name="ativo">
+                    <label class="custom-control-label" for="ativo">Ativo?</label>
+                </div>
+
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <button class="btn btn-success btn-sm" ng-click="vm.cadastrarProduto(vm.produto)">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

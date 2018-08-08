@@ -30,11 +30,11 @@
         }).when('/produto/meus-produtos', {
             controller: 'ProdutoController',
             controllerAs: 'vm',
-            templateUrl: 'wwwroot/pages/produto/meus-produtos.html'
+            templateUrl: 'wwwroot/pages/produto/listar.html'
         }).when('/produto/cadastrar-produto', {
             controller: 'ProdutoController',
             controllerAs: 'vm',
-            templateUrl: 'wwwroot/pages/produto/cadastrar-produto.html'
+            templateUrl: 'wwwroot/pages/produto/cadastrar.html'
         }).when('/recuperarSenha/:id/token/:token', {
             controller: 'RecuperarSenhaController',
             controllerAs: 'vm',

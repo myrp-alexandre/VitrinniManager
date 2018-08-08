@@ -54,6 +54,7 @@
     <Compile Include="Repositorio\EnderecoRepositorio .cs" />
     <Compile Include="Repositorio\ImagemRepositorio.cs" />
     <Compile Include="Repositorio\LojaRepositorio.cs" />
+    <Compile Include="Repositorio\ProdutoRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

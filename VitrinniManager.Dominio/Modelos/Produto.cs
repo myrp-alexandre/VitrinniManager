@@ -40,7 +40,7 @@ namespace VitrinniManager.Dominio.Modelos
 
         public string peso { get; set; }
 
-        public int servico { get; set; }
+        public bool servico { get; set; }
 
         public ICollection<Imagem> Imagens { get; set; }
 

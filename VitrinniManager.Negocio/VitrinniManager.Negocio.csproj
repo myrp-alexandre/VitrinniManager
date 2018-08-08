@@ -48,6 +48,7 @@
     <Compile Include="Servicos\EnderecoServico .cs" />
     <Compile Include="Servicos\ImagemServico.cs" />
     <Compile Include="Servicos\LojaServico.cs" />
+    <Compile Include="Servicos\ProtutoServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VitrinniManager.Compartilhado\VitrinniManager.Compartilhado.csproj">
