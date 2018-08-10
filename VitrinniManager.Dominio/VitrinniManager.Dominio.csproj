@@ -45,6 +45,7 @@
     <Compile Include="Contratos\IContaService.cs" />
     <Compile Include="Contratos\IEnderecoService.cs" />
     <Compile Include="Contratos\IDepartamentoService.cs" />
+    <Compile Include="Contratos\IEstoqueService.cs" />
     <Compile Include="Contratos\IImagemService.cs" />
     <Compile Include="Contratos\ILojaService.cs" />
     <Compile Include="Contratos\IProdutoService.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Modelos\Conta.cs" />
     <Compile Include="Modelos\Departamento.cs" />
     <Compile Include="Modelos\Endereco.cs" />
+    <Compile Include="Modelos\Estoque.cs" />
     <Compile Include="Modelos\Imagem.cs" />
     <Compile Include="Modelos\Loja.cs" />
     <Compile Include="Modelos\Produto.cs" />

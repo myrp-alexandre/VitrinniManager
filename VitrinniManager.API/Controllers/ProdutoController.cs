@@ -31,15 +31,19 @@ namespace VitrinniManager.API.Controllers
             try
             {
                 produto.idLoja = _lojaServico.bucarPorEmail(User.Identity.Name).idLoja;
-                _produtoServico.cadastrarProduto(produto);
+                int idProduto = _produtoServico.cadastrarProduto(produto);
 
-                return CreateResponse(HttpStatusCode.OK, "ok");
+                
+
+                return CreateResponse(HttpStatusCode.OK, idProduto);
             }
             catch (Exception ex)
             {
                 return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+
+        
 
     }
 }

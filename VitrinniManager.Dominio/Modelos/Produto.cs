@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VitrinniManager.Dominio.Modelos
 {
     [Table("tbProduto", Schema = "vitrinni")]
     public class Produto
     {
+        protected Produto() { }
+
         [Key]
         public int idProduto { get; set; }
 
@@ -38,9 +36,13 @@ namespace VitrinniManager.Dominio.Modelos
 
         public int largura { get; set; }
 
+        public int comprimento { get; set; }
+
         public string peso { get; set; }
 
         public bool servico { get; set; }
+
+        public ICollection<Estoque> Estoques { get; set; }
 
         public ICollection<Imagem> Imagens { get; set; }
 

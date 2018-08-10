@@ -133,6 +133,7 @@
     <Content Include="wwwroot\app\factories\conta\login-factory.js" />
     <Content Include="wwwroot\app\factories\departamento\departamento-factory.js" />
     <Content Include="wwwroot\app\factories\endereco\endereco-factory.js" />
+    <Content Include="wwwroot\app\factories\estoque\estoque-factory.js" />
     <Content Include="wwwroot\app\factories\loja\loja-factory.js" />
     <Content Include="wwwroot\app\factories\produto\produto-factory.js" />
     <Content Include="wwwroot\app\interceptors\erro-interceptor.js" />
@@ -177,6 +178,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DepartamentoController.cs" />
     <Compile Include="Controllers\LojaController.cs" />

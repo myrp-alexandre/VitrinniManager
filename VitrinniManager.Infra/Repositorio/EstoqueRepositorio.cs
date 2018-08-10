@@ -8,26 +8,24 @@ using VitrinniManager.Infra.Data;
 
 namespace VitrinniManager.Infra.Repositorio
 {
-    public class ProdutoRepositorio
+    public class EstoqueRepositorio
     {
         private AppDataContext _context;
 
-        public ProdutoRepositorio(AppDataContext context)
+        public EstoqueRepositorio(AppDataContext context)
         {
             _context = context;
         }
 
-        public int cadastrarProduto(Produto produto)
+        public void cadastrarEstoque(Estoque estoque)
         {
-            _context.Produtos.Add(produto);
+            _context.Estoques.Add(estoque);
             _context.SaveChanges();
-
-            return produto.idProduto;
         }
 
-        public Produto buscarProdutoID(int id)
+        public IEnumerable<Estoque> buscaEstoquePorIDProduto(int idProduto)
         {
-            return _context.Produtos.FirstOrDefault(x => x.idProduto == id);
+            return _context.Estoques.Where(x => x.idProduto == idProduto).ToList();
         }
 
         public void Dispose()

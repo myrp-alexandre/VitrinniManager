@@ -1,9 +1,9 @@
 ﻿((function () {
     'use strict';
     angular.module('vitrinni_manager').controller('ProdutoController', ProdutoController);
-    ProdutoController.$inject = ['$scope', '$rootScope', 'ProdutoFactory', 'DepartamentoFactory', 'SETTINGS', '$location'];
+    ProdutoController.$inject = ['$scope', '$rootScope', 'ProdutoFactory', 'EstoqueFactory', 'DepartamentoFactory', 'SETTINGS', '$location'];
 
-    function ProdutoController($scope, $rootScope, ProdutoFactory, DepartamentoFactory, SETTINGS, $location) {
+    function ProdutoController($scope, $rootScope, ProdutoFactory, EstoqueFactory, DepartamentoFactory, SETTINGS, $location) {
         var vm = this;
 
         init();
@@ -39,19 +39,26 @@
             largura: '',
             comprimento: '',
             peso: '',
-            servico: '',
-            estoque: {
-                quantidade: '',
-                opcao: '',
-                mesmoZerado: false
-            }
-
+            servico: 0,
+            estoque: [{
+               
+            }]
         };
+
+        vm.estoque = {
+            idProduto: 0,
+            qtde: '',
+            opcao: '',
+            mostraMesmoZerado: false
+        };
+
 
         vm.obterCategorias = obterCategorias;
         vm.obterDepartamentos = obterDepartamentos;
+        vm.obterEstoque = obterEstoque;
         vm.cadastrarDepartamento = cadastrarDepartamento;
         vm.cadastrarProduto = cadastrarProduto;
+        vm.cadastrarEstoque = cadastrarEstoque;
 
         function obterDepartamentos() {
             DepartamentoFactory.obterDepartamentos()
@@ -75,6 +82,17 @@
                 })
         }
 
+        function obterEstoque(idProduto) {
+            EstoqueFactory.obterEstoque(idProduto)
+                .then(function (response) {
+                    if (response.data.erro === true) {
+                        toastr.warning("Estoque não encontrado.", 'Erro');
+                    } else {
+                        vm.produto.estoque = response.data;
+                    }
+                })
+        }
+
         function cadastrarDepartamento(departamento) {
             DepartamentoFactory.Cadastrar(departamento)
                 .then(function (response) {
@@ -90,8 +108,24 @@
         function cadastrarProduto(produto) {
             ProdutoFactory.Cadastrar(produto)
                 .then(function (response) {
+                    vm.produto.idProduto = response.data;
                     toastr.success("Produto cadastrado.", 'Sucesso');
-                    $location.path('/produto/meus-produtos');
+                })
+                .catch(function (error) {
+                    toastr.error(error.data.Message, 'Erro');
+                });
+        }
+
+        function cadastrarEstoque(estoque) {
+
+            vm.estoque.idProduto = vm.produto.idProduto;
+
+            EstoqueFactory.Cadastrar(estoque)
+                .then(function (response) {
+                    toastr.success("Estoque cadastrado", 'Sucesso');
+                    $('#md_cadastrar_estoque').modal('toggle');
+                    vm.estoque = {};
+                    obterEstoque(vm.produto.idProduto);
                 })
                 .catch(function (error) {
                     toastr.error(error.data.Message, 'Erro');

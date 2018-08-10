@@ -9,6 +9,8 @@ namespace VitrinniManager.Dominio.Contratos
 {
     public interface IProdutoService : IDisposable
     {
-        void cadastrarProduto(Produto produto);
+        int cadastrarProduto(Produto produto);
+
+        Produto bucarProdutoID(int id);
     }
 }

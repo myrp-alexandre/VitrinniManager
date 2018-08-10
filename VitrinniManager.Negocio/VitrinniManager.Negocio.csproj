@@ -46,6 +46,7 @@
     <Compile Include="Servicos\ContaServico.cs" />
     <Compile Include="Servicos\DepartamentoServico.cs" />
     <Compile Include="Servicos\EnderecoServico .cs" />
+    <Compile Include="Servicos\EstoqueServico.cs" />
     <Compile Include="Servicos\ImagemServico.cs" />
     <Compile Include="Servicos\LojaServico.cs" />
     <Compile Include="Servicos\ProtutoServico.cs" />

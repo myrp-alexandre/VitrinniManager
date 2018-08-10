@@ -18,14 +18,21 @@ namespace VitrinniManager.Negocio.Servicos
             _repositorio = new ProdutoRepositorio(new Infra.Data.AppDataContext());
         }
 
-        public void cadastrarProduto(Produto produto)
+        public Produto bucarProdutoID(int id)
         {
-            _repositorio.cadastrarProduto(produto);
+            var produto = _repositorio.buscarProdutoID(id);
+            return produto;
+        }
+
+        public int cadastrarProduto(Produto produto)
+        {
+            int idProduto = _repositorio.cadastrarProduto(produto);
+            return idProduto;
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _repositorio.Dispose();
         }
     }
 }

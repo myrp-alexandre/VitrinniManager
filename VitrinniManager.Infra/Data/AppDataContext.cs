@@ -5,7 +5,7 @@ namespace VitrinniManager.Infra.Data
 {
     public class AppDataContext : DbContext
     {
-        public AppDataContext() 
+        public AppDataContext()
             : base("AppConnectionString")
         {
             Configuration.LazyLoadingEnabled = false;
@@ -19,6 +19,6 @@ namespace VitrinniManager.Infra.Data
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Imagem> Imagens { get; set; }
         public DbSet<Produto> Produtos { get; set; }
-
+        public DbSet<Estoque> Estoques { get; set; }
     }
 }

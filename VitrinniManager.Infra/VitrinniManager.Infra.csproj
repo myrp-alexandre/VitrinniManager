@@ -52,6 +52,7 @@
     <Compile Include="Repositorio\ContaRepositorio.cs" />
     <Compile Include="Repositorio\DepartamentoRepositorio.cs" />
     <Compile Include="Repositorio\EnderecoRepositorio .cs" />
+    <Compile Include="Repositorio\EstoqueRepositorio.cs" />
     <Compile Include="Repositorio\ImagemRepositorio.cs" />
     <Compile Include="Repositorio\LojaRepositorio.cs" />
     <Compile Include="Repositorio\ProdutoRepositorio.cs" />

@@ -1,164 +1,264 @@
 ﻿<!DOCTYPE html>
+
 <br />
-<div class="card">
-    <div class="card-header">Dados do Produto</div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-4">
-                <select class="form-control" ng-model="vm.produto.idDepartamento" name="departamento">
-                    <option value="" disabled selected>Selecione o departamento</option>
-                    <option ng-repeat="option in vm.departamentos" value="{{option.idDepartamento}}">{{option.departamento}}</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <span class="table-add"><a class="text-success"><i class="fa fa-plus fa-2x" aria-hidden="true" data-toggle="modal" data-target="#md_cadastrar_departamento"></i></a></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.descricaoProduto"
-                           type="text"
-                           id="produto"
-                           name="produto"
-                           class="form-control">
-                    <label for="email" class="">Nome do produto</label>
-                </div>
+<!--DADOS DO PRODUTO-->
+<blockquote class="blockquote bq-primary">
+    <span class="bq-title">Dados do produto</span>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.descricaoProduto"
+                       type="text"
+                       id="produto"
+                       name="produto"
+                       class="form-control">
+                <label for="email" class="">Nome do produto</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.especificacao"
-                           type="text"
-                           id="descricao"
-                           name="descricao"
-                           class="form-control">
-                    <label for="subject" class="">Descrição do produto</label>
-                </div>
+        <div class="col-md-2">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.codigoProdutoFornecedor"
+                       type="text"
+                       id="descricao"
+                       name="descricao"
+                       class="form-control">
+                <label for="subject" class="">Código do fornecedor</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.codigoProdutoFornecedor"
-                           type="text"
-                           id="descricao"
-                           name="descricao"
-                           class="form-control">
-                    <label for="subject" class="">Código do fornecedor</label>
-                </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.especificacao"
+                       type="text"
+                       id="descricao"
+                       name="descricao"
+                       class="form-control">
+                <label for="subject" class="">Descrição do produto</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-1">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.Altura"
-                           type="text"
-                           id="altura" name="altura"
-                           class="form-control">
-                    <label for="name" class="">Altura</label>
-                </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-11">
+            <select class="form-control" ng-model="vm.produto.idDepartamento" name="departamento">
+                <option value="" disabled selected>Selecione o departamento</option>
+                <option ng-repeat="option in vm.departamentos" value="{{option.idDepartamento}}">{{option.departamento}}</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <span class="table-add"><a class="text-success"><i class="fa fa-plus fa-2x" aria-hidden="true" data-toggle="modal" data-target="#md_cadastrar_departamento"></i></a></span>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-8 mb-md-0 mb-5">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="ativo" ng-model="vm.produto.ativo" name="ativo">
+                <label class="custom-control-label" for="ativo">Produto ativo?</label>
             </div>
-            <div class="col-md-1">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.largura"
-                           type="text"
-                           id="largura"
-                           name="largura"
-                           class="form-control">
-                    <label for="name" class="">Largura</label>
-                </div>
+        </div>
+    </div>
+</blockquote>
+<br />
+<!--FINANCEIRO-->
+<blockquote class="blockquote bq-primary">
+    <span class="bq-title">Financeiro</span>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.valorCustoProduto"
+                       type="text"
+                       id="custo"
+                       name="custo"
+                       class="form-control">
+                <label for="name" class="">Valor de Custo</label>
             </div>
-            <div class="col-md-1">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.comprimento"
-                           type="text"
-                           id="comprimento"
-                           name="comprimento"
-                           class="form-control">
-                    <label for="name" class="">Comprimento</label>
-                </div>
+        </div>
+        <div class="col-md-2">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.valorPublicoProduto"
+                       type="text"
+                       id="valor"
+                       name="valor"
+                       class="form-control">
+                <label for="name" class="">Valor de Venda</label>
             </div>
-            <div class="col-md-1">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.peso"
-                           type="text"
-                           id="peso"
-                           name="peso"
-                           class="form-control">
-                    <label for="name" class="">Peso</label>
-                </div>
+        </div>
+    </div>
+</blockquote>
+<!--DIMENSOES-->
+<blockquote class="blockquote bq-primary">
+    <span class="bq-title">Dimensões</span>
+    <div class="row">
+        <div class="col-md-1">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.Altura"
+                       type="text"
+                       id="altura" name="altura"
+                       class="form-control">
+                <label for="name" class="">Altura</label>
             </div>
+        </div>
+        <div class="col-md-1">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.largura"
+                       type="text"
+                       id="largura"
+                       name="largura"
+                       class="form-control">
+                <label for="name" class="">Largura</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.comprimento"
+                       type="text"
+                       id="comprimento"
+                       name="comprimento"
+                       class="form-control">
+                <label for="name" class="">Comprimento</label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="md-form mb-0">
+                <input ng-model="vm.produto.peso"
+                       type="text"
+                       id="peso"
+                       name="peso"
+                       class="form-control">
+                <label for="name" class="">Peso</label>
+            </div>
+        </div>
 
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.valorCustoProduto"
-                           type="text"
-                           id="custo"
-                           name="custo"
-                           class="form-control">
-                    <label for="name" class="">Custo do Produto</label>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.valorPublicoProduto"
-                           type="text"
-                           id="valor"
-                           name="valor"
-                           class="form-control">
-                    <label for="name" class="">Valor do Produto</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.estoque.quantidade"
-                           type="text"
-                           id="quantidade"
-                           name="quantidade"
-                           class="form-control">
-                    <label for="name" class="">Quantidade</label>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="md-form mb-0">
-                    <input ng-model="vm.produto.estoque.opcao"
-                           type="text"
-                           id="opcao"
-                           name="opcao"
-                           class="form-control">
-                    <label for="name" class="">Opção</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8 mb-md-0 mb-5">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="mesmoZerado" ng-model="vm.produto.estoque.mesmoZerado" name="mesmoZerado">
-                    <label class="custom-control-label" for="mesmoZerado">Exibir no catálogo mesmo sem estoque?</label>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row">
+    </div>
+</blockquote>
+<br />
+<div class="row" ng-show="vm.produto.idProduto === 0">
+    <div class="col-md-6">
+        <button class="btn btn-success btn-sm" ng-click="vm.cadastrarProduto(vm.produto)">Salvar produto</button>
+    </div>
+</div>
+<br />
+<!--ESTOQUE-->
+<blockquote class="blockquote bq-primary" ng-show="vm.produto.idProduto != 0">
+    <span class="table-add"><a class="text-success"><i class="fa fa-plus fa-1x" aria-hidden="true" data-toggle="modal" data-target="#md_cadastrar_estoque"></i></a></span>
+    <span class="bq-title">Estoque</span>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Qtde</td>
+                <td>Opção</td>
+                <td>Mostrar mesmo zerado</td>
+                <td>Ação</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="estoque in vm.produto.estoque">
+                <th>{{estoque.qtde}}</th>
+                <th>{{estoque.opcao}}</th>
+                <th>{{estoque.mostraMesmoZerado}}</th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+</blockquote>
 
-            <div class="col-md-8 mb-md-0 mb-5">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="ativo" ng-model="vm.produto.ativo" name="ativo">
-                    <label class="custom-control-label" for="ativo">Ativo?</label>
-                </div>
 
+<br />
+
+<!--MODAL CADASTRO DE DEPARTAMENTO-->
+<div class="modal fade " id="md_cadastrar_departamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar departamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="departamentoForm" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.departamento.departamento"
+                                       type="text"
+                                       name="departamento"
+                                       class="form-control"
+                                       required>
+                                <label for="lbl_departamento" class="active">Departamento</label>
+                                <div ng-show="departamentoForm.departamento.$invalid && departamentoForm.departamento.$dirty"
+                                     class="alert alert-danger">
+                                    Departamento inválido
+                                </div>
+                            </div>
+
+                            <select class="md-form form-control" ng-model="vm.departamento.idCategoria" name="categoria">
+                                <option value="" disabled selected>Selecione a Categoria</option>
+                                <option ng-repeat="option in vm.categorias" value="{{option.idCategoria}}">{{option.descricaoCategoria}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" ng-disabled="!vm.departamento.departamento || !vm.departamento.idCategoria" ng-click="vm.cadastrarDepartamento(vm.departamento)">Salvar</button>
             </div>
         </div>
-        <br />
-        <div class="row">
-            <div class="col-md-2">
-                <button class="btn btn-success btn-sm" ng-click="vm.cadastrarProduto(vm.produto)">Salvar</button>
+    </div>
+</div>
+
+<!--MODAL CADASTRO DE ESTOQUE-->
+<div class="modal fade " id="md_cadastrar_estoque" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Estoque</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="departamentoForm" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.estoque.opcao"
+                                       type="text"
+                                       id="opcao"
+                                       name="opcao"
+                                       class="form-control">
+                                <label for="name" class="">Opção</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.estoque.qtde"
+                                       type="text"
+                                       id="quantidade"
+                                       name="quantidade"
+                                       class="form-control">
+                                <label for="name" class="">Quantidade</label>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 mb-md-0 mb-5">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="mesmoZerado" ng-model="vm.estoque.mostraMesmoZerado" name="mesmoZerado">
+                                <label class="custom-control-label" for="mesmoZerado">Exibir no catálogo mesmo sem estoque?</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" ng-disabled="!vm.estoque.qtde || !vm.estoque.opcao" ng-click="vm.cadastrarEstoque(vm.estoque)">Salvar</button>
             </div>
         </div>
     </div>
