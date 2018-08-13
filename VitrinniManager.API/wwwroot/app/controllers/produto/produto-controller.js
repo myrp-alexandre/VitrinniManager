@@ -11,7 +11,6 @@
         function init() {
             obterDepartamentos();
             obterCategorias();
-
         }
 
         vm.imagem = '';
@@ -23,6 +22,7 @@
         };
 
         vm.categorias = [];
+        vm.produtos = [];
 
         vm.produto = {
             idProduto: 0,
@@ -56,6 +56,8 @@
         vm.obterCategorias = obterCategorias;
         vm.obterDepartamentos = obterDepartamentos;
         vm.obterEstoque = obterEstoque;
+        vm.obterProdutos = obterProdutos;
+       
         vm.cadastrarDepartamento = cadastrarDepartamento;
         vm.cadastrarProduto = cadastrarProduto;
         vm.cadastrarEstoque = cadastrarEstoque;
@@ -89,6 +91,17 @@
                         toastr.warning("Estoque não encontrado.", 'Erro');
                     } else {
                         vm.produto.estoque = response.data;
+                    }
+                })
+        }
+
+        function obterProdutos() {
+            ProdutoFactory.obterProdutos()
+                .then(function (response) {
+                    if (response.data.erro === true) {
+                        toastr.warning("Não foi possível carregar os produtos da loja.", 'Erro');
+                    } else {
+                        vm.produtos = response.data;
                     }
                 })
         }

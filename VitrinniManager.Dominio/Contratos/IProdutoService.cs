@@ -12,5 +12,7 @@ namespace VitrinniManager.Dominio.Contratos
         int cadastrarProduto(Produto produto);
 
         Produto bucarProdutoID(int id);
+
+        IEnumerable<Produto> buscaProdutosIDLoja(int id);
     }
 }

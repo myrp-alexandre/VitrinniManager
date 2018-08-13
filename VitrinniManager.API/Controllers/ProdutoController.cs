@@ -43,7 +43,24 @@ namespace VitrinniManager.API.Controllers
             }
         }
 
-        
+
+        [HttpGet]
+        [Route("obterProdutos")]
+        public Task<HttpResponseMessage> obterProdutos()
+        {
+            try
+            {
+                var loja = _lojaServico.bucarPorEmail(User.Identity.Name);
+                var produtos = _produtoServico.buscaProdutosIDLoja(loja.idLoja);
+
+                return CreateResponse(HttpStatusCode.OK, produtos);
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
 
     }
 }

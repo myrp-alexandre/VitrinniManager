@@ -152,6 +152,7 @@
     <Content Include="wwwroot\assets\js\angular.js" />
     <Content Include="wwwroot\assets\js\bootstrap.js" />
     <Content Include="wwwroot\assets\js\bootstrap.min.js" />
+    <Content Include="wwwroot\assets\js\currency-mask.js" />
     <Content Include="wwwroot\assets\js\jquery-3.3.1.min.js" />
     <Content Include="wwwroot\assets\js\mdb.js" />
     <Content Include="wwwroot\assets\js\mdb.min.js" />
