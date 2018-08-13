@@ -167,6 +167,8 @@
     <Content Include="wwwroot\pages\home\index.html" />
     <Content Include="wwwroot\pages\conta\recuperar-senha.html" />
     <Content Include="wwwroot\pages\loja\minha-loja.html" />
+    <Content Include="wwwroot\pages\loja\_endereco.html" />
+    <Content Include="wwwroot\pages\loja\_loja.html" />
     <Content Include="wwwroot\pages\produto\alterar.html" />
     <Content Include="wwwroot\pages\produto\listar.html" />
     <Content Include="wwwroot\pages\produto\cadastrar.html" />

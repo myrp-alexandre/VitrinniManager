@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<blockquote class="blockquote bq-primary">
+    <span class="table-add"><a class="text-success"><i class="fa fa-plus fa-1x" aria-hidden="true" data-toggle="modal" data-target="#md_atualizar_endereco"></i></a></span>
+    <span class="bq-title">Endereços</span>
+    <div class="card-body">
+        <ul class="list-group" ng-repeat="item in vm.loja.enderecos">
+            <li class="list-group-item">{{item.logradouro}}, {{item.bairro}} {{item.localidade}}/{{item.uf}} <a ng-click="vm.excluirEndereco(item.idEndereco)"><i class="fa fa-remove text-danger" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</blockquote>
+
+
+<!--MODAL CADASTRO DE ENDERECOS-->
+<div class="modal fade " id="md_atualizar_endereco" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Endereço</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form name="enderecoForm" method="post">
+                <div class="modal-body">
+                    <div class="form-row align-items-center md-form" ng-class="{ 'has-error' : enderecoForm.cep.$invalid && enderecoForm.cep.$dirty }">
+                        <div class="col-auto">
+                            <input ng-model="vm.endereco[0].cep"
+                                   ng-minlength="8"
+                                   ng-maxlength="9"
+                                   type="text" id="txt_cep"
+                                   class="form-control  mb-2"
+                                   name="cep"
+                                   required>
+                            <label for="lbl_cep" class="active">CEP</label>
+                            <div ng-show="enderecoForm.cep.$invalid && enderecoForm.cep.$dirty"
+                                 class="alert alert-danger">
+                                CEP inválido
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary btn-sm mt-0" ng-disabled="!vm.endereco[0].cep" ng-click="vm.obterEnderecoPorCep(vm.endereco[0].cep)">Buscar</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="md-form">
+                                <input ng-model="vm.endereco[0].uf" type="text" id="txt_uf" class="form-control" disabled>
+                                <label for="lbl_uf" class="active">UF</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md-form">
+                        <input ng-model="vm.endereco[0].logradouro" type="text" id="txt_cep" class="form-control">
+                        <label for="lbl_cep" class="active">Endereço</label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.endereco[0].bairro" type="text" id="txt_bairro" class="form-control" disabled>
+                                <label for="lbl_bairro" class="active">Bairro</label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="md-form">
+                                <input ng-model="vm.endereco[0].localidade" type="text" id="txt_localidade" class="form-control" disabled>
+                                <label for="lbl_localidade" class="active">Cidade</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md-form" ng-class="{ 'has-error' : enderecoForm.complemento.$invalid && enderecoForm.complemento.$dirty }">
+                        <input ng-model="vm.endereco[0].complemento"
+                               type="text"
+                               id="txt_complemento"
+                               name="complemento"
+                               class="form-control"
+                               ng-maxlength="150">
+                        <label for="lbl_complementop" class="active">Complemento</label>
+                        <div ng-show="enderecoForm.complemento.$invalid && enderecoForm.complemento.$dirty"
+                             class="alert alert-danger">
+                            Complemento inválido
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" ng-click="vm.cadastrarEndereco(vm.endereco[0])">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

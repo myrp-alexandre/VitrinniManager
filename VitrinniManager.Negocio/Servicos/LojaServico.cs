@@ -22,6 +22,7 @@ namespace VitrinniManager.Negocio.Servicos
             if (objLoja == null)
                 throw new Exception("CPF ou CNPJ não encontrado.");
 
+            objLoja.nomeLoja = loja.nomeLoja;
             objLoja.contatoLoja = loja.contatoLoja;
             objLoja.descricaoLoja = loja.descricaoLoja;
             objLoja.linkFace = loja.linkFace;

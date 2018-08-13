@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<blockquote class="blockquote bq-primary">
+    <span class="table-add"><a class="text-success"><i class="fa fa-edit fa-1x" aria-hidden="true" data-toggle="modal" data-target="#md_atualizar_cadastro"></i></a></span>
+    <span class="bq-title">Dados da loja</span>
+    <ul class="list-group">
+        <li class="list-group-item"><b>Nome da loja:</b> {{vm.loja.nomeLoja}}</li>
+        <li class="list-group-item"><b>Descrição:</b> {{vm.loja.descricaoLoja}}</li>
+        <li class="list-group-item"><b>CPF/CNPJ:</b> {{vm.loja.cpfcnpj}}</li>
+        <li class="list-group-item"><b>Email:</b> {{vm.loja.emailLoja}}</li>
+        <li class="list-group-item"><b>Contato:</b> {{vm.loja.contatoLoja}}</li>
+        <li class="list-group-item"><b>Facebook:</b> {{vm.loja.linkFace}}</li>
+        <li class="list-group-item"><b>Intagram:</b> {{vm.loja.linkInsta}}</li>
+        <li class="list-group-item"><b>WhatsApp:</b> {{vm.loja.linkWhatsapp}}</li>
+        <li class="list-group-item"><b>URL da loja:</b> {{vm.loja.urlLoja}}</li>
+    </ul>
+</blockquote>
+
+<!--MODAL ATUALIZACAO DA LOJA-->
+<div class="modal fade " id="md_atualizar_cadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Atualizar cadastro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.nomeLoja" type="text" id="txt_nome" class="form-control">
+                            <label for="lbl_nome" class="active">Nome da loja</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.contatoLoja" type="text" id="txt_contato" class="form-control">
+                            <label for="lbl_contato" class="active">Contato</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <textarea ng-model="vm.lojaAtualizar.descricaoLoja" type="text" id="txt_descricao" class="form-control md-textarea" rows="3"></textarea>
+                            <label for="lbl_descricao" class="active">Descrição</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.linkFace" type="text" id="txt_face" class="form-control">
+                            <small class="text-info">https://www.facebook.com/{{vm.lojaAtualizar.linkFace}}</small><br />
+                            <label for="lbl_face" class="active">Facebook</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.linkInsta" type="text" id="txt_insta" class="form-control">
+                            <small class="text-info">https://www.instagram.com/{{vm.lojaAtualizar.linkInsta}}</small><br />
+                            <label for="lbl_insta" class="active">Instagram</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input ng-model="vm.lojaAtualizar.linkWhatsapp" type="text" id="txt_whatsapp" class="form-control">
+                            <label for="lbl_whatsapp" class="active">WhatsApp</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><a><i ng-click="vm.verificarNomeLoja(vm.lojaAtualizar.urlLoja)">verificar disponibilidade do nome</i></a></div>
+                            </div>
+                            <input ng-model="vm.lojaAtualizar.urlLoja" type="text" id="txt_urlloja" class="form-control" placeholder="URL da loja"><br />
+                        </div>
+                        <small><b> Link da minha loja:</b></small> <small class="text-info">http://vitrinniweb-com.umbler.net/{{vm.lojaAtualizar.urlLoja}}</small><br />
+                        <div class="alert-warning text-center" ng-show="vm.aviso">
+                            <small><b>Atenção:</b> {{ vm.aviso}}</small>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="vm.atualizarLoja(vm.lojaAtualizar)">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

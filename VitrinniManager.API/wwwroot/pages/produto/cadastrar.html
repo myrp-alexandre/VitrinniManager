@@ -22,12 +22,8 @@
 
             <!--área de cadastro-->
             <section>
-                
-                
-                
                 <span ng-show="vm.produto.servico === 0" ng-include="'wwwroot/pages/produto/_produto.html'"></span>
                 <span ng-show="vm.produto.servico === 1" ng-include="'wwwroot/pages/produto/_servico.html'"></span>
-
                 <!--IMAGENS-->
                 <blockquote class="blockquote bq-warning" ng-show="vm.produto.servico === 0 || vm.produto.servico === 1">
                     <h3 class="bq-title">Imagens</h3>

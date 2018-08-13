@@ -136,7 +136,7 @@
 <br />
 <div class="row" ng-show="vm.produto.idProduto === 0">
     <div class="col-md-6">
-        <button class="btn btn-success btn-sm" ng-click="vm.cadastrarProduto(vm.produto)">Salvar produto</button>
+        <button class="btn btn-success btn-sm" ng-disabled="!vm.produto.idDepartamento || !vm.produto.descricaoProduto" ng-click="vm.cadastrarProduto(vm.produto)">Salvar produto</button>
     </div>
 </div>
 <br />
@@ -144,7 +144,7 @@
 <blockquote class="blockquote bq-primary" ng-show="vm.produto.idProduto != 0">
     <span class="table-add"><a class="text-success"><i class="fa fa-plus fa-1x" aria-hidden="true" data-toggle="modal" data-target="#md_cadastrar_estoque"></i></a></span>
     <span class="bq-title">Estoque</span>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-striped table-responsive-md">
         <thead>
             <tr>
                 <td>Qtde</td>
@@ -163,7 +163,6 @@
         </tbody>
     </table>
 </blockquote>
-
 
 <br />
 
