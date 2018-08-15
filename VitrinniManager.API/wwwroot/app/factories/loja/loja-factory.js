@@ -18,12 +18,11 @@
                     'Authorization': 'Bearer ' + token
                 }
             }
-            return $http.get(SETTINGS.SERVICE_URL + 'api/loja/obterLojaComEndereco', header);
+            return $http.get(SETTINGS.SERVICE_URL + 'api/loja/obterLojaComEndereco/', header);
         }
 
         function atualizarLoja(loja) {
-            
-            return $http.put(SETTINGS.SERVICE_URL + 'api/loja/atualizarLoja', loja, $rootScope.header);
+            return $http.put(SETTINGS.SERVICE_URL + 'api/loja/atualizarLoja/', loja, $rootScope.header);
         }
 
         function verificarNomeLoja(nome) {

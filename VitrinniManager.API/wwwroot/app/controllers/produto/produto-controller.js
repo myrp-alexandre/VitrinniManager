@@ -1,9 +1,9 @@
 ﻿((function () {
     'use strict';
     angular.module('vitrinni_manager').controller('ProdutoController', ProdutoController);
-    ProdutoController.$inject = ['$scope', '$rootScope', 'ProdutoFactory', 'EstoqueFactory', 'DepartamentoFactory', 'SETTINGS', '$location'];
+    ProdutoController.$inject = ['$scope', '$rootScope', 'ProdutoFactory', 'EstoqueFactory', 'DepartamentoFactory', 'ImagemFactory' ,'SETTINGS', '$location'];
 
-    function ProdutoController($scope, $rootScope, ProdutoFactory, EstoqueFactory, DepartamentoFactory, SETTINGS, $location) {
+    function ProdutoController($scope, $rootScope, ProdutoFactory, EstoqueFactory, DepartamentoFactory, ImagemFactory, SETTINGS, $location) {
         var vm = this;
 
         init();
@@ -22,6 +22,7 @@
         };
 
         vm.categorias = [];
+
         vm.produtos = [];
 
         vm.produto = {
@@ -52,7 +53,6 @@
             mostraMesmoZerado: false
         };
 
-
         vm.obterCategorias = obterCategorias;
         vm.obterDepartamentos = obterDepartamentos;
         vm.obterEstoque = obterEstoque;
@@ -61,6 +61,7 @@
         vm.cadastrarDepartamento = cadastrarDepartamento;
         vm.cadastrarProduto = cadastrarProduto;
         vm.cadastrarEstoque = cadastrarEstoque;
+        vm.cadastrarImagem = cadastrarImagem;
 
         function obterDepartamentos() {
             DepartamentoFactory.obterDepartamentos()
@@ -139,6 +140,26 @@
                     $('#md_cadastrar_estoque').modal('toggle');
                     vm.estoque = {};
                     obterEstoque(vm.produto.idProduto);
+                })
+                .catch(function (error) {
+                    toastr.error(error.data.Message, 'Erro');
+                });
+        }
+
+        function cadastrarImagem(imagem) {
+
+
+            var content = imagem.substr(imagem.indexOf("base64,") + "base64,".length);
+            var imagem = {
+                idProduto: vm.produto.idProduto,
+                nome: imagem.replace(/^data:image\/(png|jpg);base64,/, ""),
+                principal: 1,
+                ativa: true
+            };
+
+            ImagemFactory.Cadastrar(imagem)
+                .then(function (response) {
+                    toastr.success("Imagem cadastrada", 'Sucesso');
                 })
                 .catch(function (error) {
                     toastr.error(error.data.Message, 'Erro');

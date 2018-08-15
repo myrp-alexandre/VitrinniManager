@@ -25,6 +25,12 @@ namespace VitrinniManager.Infra.Repositorio
             return produto.idProduto;
         }
 
+        public void cadastrarImagem(Imagem imagem)
+        {
+            _context.Imagens.Add(imagem);
+            _context.SaveChanges();
+        }
+
         public Produto buscarProdutoID(int id)
         {
             return _context.Produtos.FirstOrDefault(x => x.idProduto == id);

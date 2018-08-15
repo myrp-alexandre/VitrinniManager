@@ -1,9 +1,3 @@
-U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.dll
-U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.pdb
-U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csprojAssemblyReference.cache
-U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csproj.CoreCompileInputs.cache
-U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.dll
-U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.pdb
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.dll
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.pdb
 C:\Users\bruno\OneDrive\Documentos\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csprojResolveAssemblyReference.cache
@@ -16,3 +10,9 @@ D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.C
 D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csproj.CoreCompileInputs.cache
 D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.dll
 D:\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.pdb
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.dll
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\bin\Debug\VitrinniManager.Compartilhado.pdb
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csprojAssemblyReference.cache
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.csproj.CoreCompileInputs.cache
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.dll
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.Compartilhado\obj\Debug\VitrinniManager.Compartilhado.pdb

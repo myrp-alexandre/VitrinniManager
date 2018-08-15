@@ -39,6 +39,7 @@ namespace VitrinniManager.API.Controllers
                 return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+
         [HttpGet]
         [Route("obterLojaComEndereco")]
         public Task<HttpResponseMessage> obterLojaComEndereco()
@@ -53,6 +54,7 @@ namespace VitrinniManager.API.Controllers
                 return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+
         [HttpPut]
         [Route("atualizarLoja")]
         public Task<HttpResponseMessage> atualizarLoja(Loja loja)

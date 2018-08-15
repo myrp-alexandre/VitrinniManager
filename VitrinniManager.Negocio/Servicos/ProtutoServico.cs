@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using VitrinniManager.Dominio.Contratos;
 using VitrinniManager.Dominio.Modelos;
 using VitrinniManager.Infra.Repositorio;
@@ -9,7 +11,7 @@ namespace VitrinniManager.Negocio.Servicos
     public class ProtutoServico : IProdutoService
     {
         private readonly ProdutoRepositorio _repositorio = null;
-
+    
         public ProtutoServico()
         {
             _repositorio = new ProdutoRepositorio(new Infra.Data.AppDataContext());

@@ -134,6 +134,7 @@
     <Content Include="wwwroot\app\factories\departamento\departamento-factory.js" />
     <Content Include="wwwroot\app\factories\endereco\endereco-factory.js" />
     <Content Include="wwwroot\app\factories\estoque\estoque-factory.js" />
+    <Content Include="wwwroot\app\factories\imagem\imagem-factory.js" />
     <Content Include="wwwroot\app\factories\loja\loja-factory.js" />
     <Content Include="wwwroot\app\factories\produto\produto-factory.js" />
     <Content Include="wwwroot\app\interceptors\erro-interceptor.js" />
@@ -159,6 +160,7 @@
     <Content Include="wwwroot\assets\js\ng-img-crop.js" />
     <Content Include="wwwroot\assets\js\outros.js" />
     <Content Include="wwwroot\assets\js\popper.min.js" />
+    <Content Include="wwwroot\assets\js\pt-br.js" />
     <Content Include="wwwroot\assets\outros\porsche-gt3-rs-rt-026.jpg" />
     <Content Include="wwwroot\assets\outros\porsche.jpg" />
     <Content Include="wwwroot\assets\outros\Spinner.gif" />
@@ -181,6 +183,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\ImagemController.cs" />
     <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DepartamentoController.cs" />
@@ -231,7 +234,9 @@
       <Name>VitrinniManager.Negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

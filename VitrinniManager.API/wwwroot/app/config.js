@@ -5,6 +5,8 @@
     //brf10000
     //Produção
     //mssql914.umbler.com
+    //http://vitrinniwebmanager-com.umbler.net/
+    //http://localhost:57934/
 
 
     'use strict';
@@ -24,9 +26,6 @@
         $rootScope.header = null;
         $rootScope.email = null;
         $rootScope.token_loja = null;
-
-   
-
 
         if (token) {
             $rootScope.token = token;

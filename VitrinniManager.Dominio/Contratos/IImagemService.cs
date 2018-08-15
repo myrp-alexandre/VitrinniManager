@@ -9,7 +9,7 @@ namespace VitrinniManager.Dominio.Contratos
 {
     public interface IImagemService : IDisposable
     {
-        void Inserir(Imagem img);
+        void Inserir(Imagem img, int idLoja);
         void Deletar(int id);
 
         IEnumerable<Imagem> buscarPorIDProduto(int id);

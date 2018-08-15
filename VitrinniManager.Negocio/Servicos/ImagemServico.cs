@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
 using VitrinniManager.Dominio.Contratos;
 using VitrinniManager.Dominio.Modelos;
 using VitrinniManager.Infra.Data;
 using VitrinniManager.Infra.Repositorio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace VitrinniManager.Negocio.Servicos
 {
@@ -36,9 +39,25 @@ namespace VitrinniManager.Negocio.Servicos
             return imagens;
         }
 
-        public void Inserir(Imagem img)
+        public void Inserir(Imagem img, int idLoja)
         {
-            throw new NotImplementedException();
+
+            string diretorio = Imagem.CriarPasta(idLoja);
+
+            if (string.IsNullOrEmpty(diretorio))
+                throw new Exception("Não foi possível criar a pasta da loja, tente novamente.");
+
+
+            byte[] data = Convert.FromBase64String(img.nome);
+
+            string nomeImagem = Guid.NewGuid().ToString() + ".png";
+            string pathCompleta = Path.Combine(diretorio, nomeImagem);
+
+
+            MemoryStream stream = new MemoryStream(data);
+
+            Imagem.Comprimir(stream, pathCompleta);
+
         }
 
         public void Deletar(int id)
@@ -51,7 +70,5 @@ namespace VitrinniManager.Negocio.Servicos
         {
             _repositorio.Dispose();
         }
-
-
     }
 }
