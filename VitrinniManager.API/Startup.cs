@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Net.Http.Extensions.Compression.Core.Compressors;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json;
@@ -23,17 +25,12 @@ namespace VitrinniManager.API
 
             ConfigureOAuth(app, new ContaServico());
             ConfigureWebApi(config);
-
-
  
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
             //config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
-
-
-
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
@@ -64,6 +61,11 @@ namespace VitrinniManager.API
                  routeTemplate: "api/{controller}/{id}",
                  defaults: new { id = RouteParameter.Optional }
              );
+
+            config.MessageHandlers.Insert(0,
+                new ServerCompressionHandler(
+                    new GZipCompressor(),
+                    new DeflateCompressor()));
         }
     }
 }

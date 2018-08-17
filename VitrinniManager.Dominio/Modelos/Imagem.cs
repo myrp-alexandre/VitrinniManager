@@ -105,11 +105,9 @@ namespace VitrinniManager.Dominio.Modelos
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                string erro = ex.Message.ToString();
-                throw;
-
+                throw new Exception("Não foi possível salvar a imagem.");
             }
         }
 
@@ -138,7 +136,7 @@ namespace VitrinniManager.Dominio.Modelos
                 try
                 {
                     Directory.CreateDirectory(path);
-                    retorno = HttpContext.Current.Server.MapPath("~/Uploads/" + idLoja.ToString()).ToString();
+                    retorno = path;
                 }
                 catch (Exception)
                 {
@@ -148,7 +146,7 @@ namespace VitrinniManager.Dominio.Modelos
             }
             else
             {
-                retorno = HttpContext.Current.Server.MapPath("~/Uploads/" + idLoja.ToString()).ToString();
+                retorno = path;
             }
 
             return retorno;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,15 +39,12 @@ namespace VitrinniManager.Infra.Repositorio
 
         public IEnumerable<Produto> buscaProdutoPorIDLoja(int id)
         {
-            var produtos = _context.Produtos.Where(x => x.idLoja == id).ToList();
-
-            foreach (var item in produtos)
-            {
-                _context.Entry(item).Collection(p => p.Estoques).Load();
-                _context.Entry(item).Reference(p => p.Loja).Load();
-                _context.Entry(item).Reference(p => p.Departamento).Load();
-            }
-
+            var produtos = _context.Produtos
+                            .Where(x => x.idLoja == id)
+                            .Include(x => x.Estoques)
+                            .Include(x => x.Departamento)
+                            .Include(x => x.Loja)
+                            .ToList();
             return produtos;
         }
 

@@ -45,7 +45,7 @@ namespace VitrinniManager.Infra.Repositorio
         {
             var loja = _context.Lojas.Where(x => x.CPFCNPJ == cpf_cnpj).FirstOrDefault();
             if (loja != null)
-                _context.Entry(loja).Collection(p => p.Enderecos).Load();
+                 _context.Entry(loja).Collection(p => p.Enderecos).Load();
 
             return loja;
         }

@@ -289,3 +289,6 @@ U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\obj\Debug\VitrinniManager.API
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\obj\Debug\VitrinniManager.API.csproj.CopyComplete
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\obj\Debug\VitrinniManager.API.dll
 U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\obj\Debug\VitrinniManager.API.pdb
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\bin\Microsoft.AspNet.WebApi.Extensions.Compression.Server.dll
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\bin\System.Net.Http.Extensions.Compression.Client.dll
+U:\Pessoal\BRF\VitrinniManager\VitrinniManager.API\bin\System.Net.Http.Extensions.Compression.Core.dll

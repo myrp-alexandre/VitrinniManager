@@ -41,24 +41,21 @@ namespace VitrinniManager.Negocio.Servicos
 
         public void Inserir(Imagem img, int idLoja)
         {
-
             string diretorio = Imagem.CriarPasta(idLoja);
 
             if (string.IsNullOrEmpty(diretorio))
                 throw new Exception("Não foi possível criar a pasta da loja, tente novamente.");
 
-
-            byte[] data = Convert.FromBase64String(img.nome);
-
-            string nomeImagem = Guid.NewGuid().ToString() + ".png";
+            string nomeImagem = Guid.NewGuid().ToString() + ".jpg";
             string pathCompleta = Path.Combine(diretorio, nomeImagem);
 
+            byte[] data = Convert.FromBase64String(img.nome);
+            Imagem.Comprimir(new MemoryStream(data), pathCompleta);
 
-            MemoryStream stream = new MemoryStream(data);
-
-            Imagem.Comprimir(stream, pathCompleta);
-
+            _repositorio.Inserir(img);
         }
+
+
 
         public void Deletar(int id)
         {
