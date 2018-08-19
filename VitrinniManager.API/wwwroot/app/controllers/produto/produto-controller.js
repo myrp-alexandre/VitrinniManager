@@ -15,6 +15,7 @@
 
         vm.imagem = '';
         vm.imagemCortada = '';
+        vm.FotoPrincipalq = {};
 
         vm.departamento = {
             departamento: null,
@@ -24,6 +25,8 @@
         vm.categorias = [];
 
         vm.produtos = [];
+
+        vm.imagens = [];
 
         vm.produto = {
             idProduto: 0,
@@ -57,6 +60,7 @@
         vm.obterDepartamentos = obterDepartamentos;
         vm.obterEstoque = obterEstoque;
         vm.obterProdutos = obterProdutos;
+        vm.obterImagens = obterImagens;
        
         vm.cadastrarDepartamento = cadastrarDepartamento;
         vm.cadastrarProduto = cadastrarProduto;
@@ -107,6 +111,17 @@
                 })
         }
 
+        function obterImagens(idProduto) {
+            ImagemFactory.obterImagens(idProduto)
+                .then(function (response) {
+                    if (response.data.erro === true) {
+                        toastr.warning("Não foi possivel carregar suas imagens.", 'Erro');
+                    } else {
+                        vm.imagens = response.data;
+                    }
+                })
+        }
+
         function cadastrarDepartamento(departamento) {
             DepartamentoFactory.Cadastrar(departamento)
                 .then(function (response) {
@@ -152,14 +167,13 @@
             var content = imagem.substr(imagem.indexOf("base64,") + "base64,".length);
             var imagem = {
                 idProduto: vm.produto.idProduto,
-                nome: imagem.replace(/^data:image\/(png|jpg);base64,/, ""),
-                principal: 1,
-                ativa: true
+                nome: imagem.replace(/^data:image\/(png|jpg);base64,/, "")
             };
 
             ImagemFactory.Cadastrar(imagem)
                 .then(function (response) {
                     toastr.success("Imagem cadastrada", 'Sucesso');
+                    obterImagens(imagem.idProduto);
                 })
                 .catch(function (error) {
                     toastr.error(error.data.Message, 'Erro');

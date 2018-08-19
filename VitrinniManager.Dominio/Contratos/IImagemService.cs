@@ -12,7 +12,7 @@ namespace VitrinniManager.Dominio.Contratos
         void Inserir(Imagem img, int idLoja);
         void Deletar(int id);
 
-        IEnumerable<Imagem> buscarPorIDProduto(int id);
+        IEnumerable<Imagem> buscarPorIDProduto(int id, int idLoja);
         Imagem buscarPorID(int id);
     }
 }

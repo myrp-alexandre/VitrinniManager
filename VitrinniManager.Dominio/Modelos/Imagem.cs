@@ -6,6 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Web;
+using VitrinniManager.Common.Validacao;
 
 namespace VitrinniManager.Dominio.Modelos
 {
@@ -13,6 +14,35 @@ namespace VitrinniManager.Dominio.Modelos
     public class Imagem
     {
         protected Imagem() { }
+
+        public Imagem(int _idproduto, int _idLoja, string _base64)
+        {
+            this.nome = Guid.NewGuid().ToString() + ".jpg";
+            this.principal = 0;
+            this.ativa = true;
+            this.dataCadastramento = DateTime.Now;
+            this.idProduto = _idproduto;
+
+            if (_idLoja != 0)
+            {
+                this.diretorio = CriarPasta(_idLoja);//cria o diretoria da loja se não existir
+                this.base64 = Convert.FromBase64String(_base64 == null ? "" : _base64);//converte a string para um array de bytes
+                this.pathCompleta = Path.Combine(diretorio, nome);//retorna o caminho completo da imagem
+            }
+
+        }
+
+        public Imagem(int _idimagem, string _nome, int _idProduto, int _principal, bool _ativa, int _idLoja)
+        {
+            this.IdProdutoImagem = _idimagem;
+            this.nome = _nome;
+            this.principal = _principal;
+            this.ativa = _ativa;
+            this.idProduto = _idProduto;
+            this.diretorio = CriarPasta(_idLoja);
+            this.pathCompleta = Path.Combine(diretorio, nome);//retorna o caminho completo da imagem
+            this.base64Retorno = "data:image/jpg;base64," + ConvertBase64(pathCompleta);
+        }
 
         [Key]
         public int IdProdutoImagem { get; set; }
@@ -28,13 +58,19 @@ namespace VitrinniManager.Dominio.Modelos
         [ForeignKey("Produto")]
         public int idProduto { get; set; }
 
-        public virtual Produto Produto { get; set; }
+        [NotMapped]
+        public string diretorio { get; set; }
 
-        //public void ValidaImagem(Imagem img)
-        //{
-        //    AssertionConcern.AssertArgumentNotNull(img.nome, "Não foi possível definir um nome para imagem, tente novamente.");
-        //    AssertionConcern.AssertArgumentNotNull(img.ativa, "E obrigatório definir uma imagem principal.");
-        //}
+        [NotMapped]
+        public byte[] base64 { get; set; }
+
+        [NotMapped]
+        public string base64Retorno { get; set; }
+
+        [NotMapped]
+        public string pathCompleta { get; set; }
+
+        public virtual Produto Produto { get; set; }
 
         public static void Comprimir(Stream sourcePath, string targetPath)
         {
@@ -75,7 +111,7 @@ namespace VitrinniManager.Dominio.Modelos
                         imgGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
                         imgGraph.CompositingQuality = CompositingQuality.HighSpeed;
                         imgGraph.DrawImage(originalBMP, 0, 0, newWidth, newHeight);
-                 
+
                         bitMAP1.Save(targetPath, image.RawFormat);
 
                         bitMAP1.Dispose();
@@ -150,6 +186,22 @@ namespace VitrinniManager.Dominio.Modelos
             }
 
             return retorno;
+        }
+
+        public static string ConvertBase64(string path)
+        {
+            using (Image image = Image.FromFile(path))
+            {
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
+
+                    // Convert byte[] to Base64 String
+                    string base64String = Convert.ToBase64String(imageBytes);
+                    return base64String;
+                }
+            }
         }
     }
 }

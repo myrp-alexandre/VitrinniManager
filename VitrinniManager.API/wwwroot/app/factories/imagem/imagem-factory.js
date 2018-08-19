@@ -7,15 +7,15 @@
     function ImagemFactory($http, SETTINGS, $rootScope) {
         return {
             Cadastrar: Cadastrar,
-            obterEstoque: obterEstoque
+            obterImagens: obterImagens
         };
 
         function Cadastrar(imagem) {
             return $http.post(SETTINGS.SERVICE_URL + 'api/imagem/cadastrarImagem', imagem, $rootScope.header);
         }
 
-        function obterEstoque(id) {
-            return $http.get(SETTINGS.SERVICE_URL + 'api/imagem/obterImagem/' + id, $rootScope.header);
+        function obterImagens(idProduto) {
+            return $http.get(SETTINGS.SERVICE_URL + 'api/imagem/obterImagensIDProduto/' + idProduto, $rootScope.header);
         }
     }
 })();

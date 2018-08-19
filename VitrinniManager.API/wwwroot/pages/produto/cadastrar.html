@@ -26,7 +26,10 @@
                 <span ng-show="vm.produto.servico === 1" ng-include="'wwwroot/pages/produto/_servico.html'"></span>
                 <!--IMAGENS-->
                 <blockquote class="blockquote bq-warning" ng-show="vm.produto.servico === 0 || vm.produto.servico === 1">
-                    <h3 class="bq-title">Imagens</h3>
+                    <h3 class="bq-title">
+                        Fotos
+                    </h3>
+                    <small><strong>Adicione até 20 fotos</strong></small>
                     <br />
 
                     <div>
@@ -54,12 +57,13 @@
                         <button class="btn btn-success btn-sm" ng-click="vm.cadastrarImagem(vm.imagemCortada)"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Enviar</button>
                         <br />
                         <br />
+ 
                         <div>
-                            <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
-                            <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
-                            <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
-                            <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
-                            <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail col-md-2">
+                            <span ng-repeat="i in vm.imagens">
+                                <img ng-src="{{i.base64Retorno}}" alt="..." class="img-thumbnail col-md-2">
+                                <input type="radio" ng-model="$parent.FotoPrincipal" ng-value="i"/>
+                                <small>principal</small>
+                            </span>
                         </div>
                     </div>
 

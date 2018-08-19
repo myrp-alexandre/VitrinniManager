@@ -29,33 +29,34 @@ namespace VitrinniManager.Negocio.Servicos
             return imagem;
         }
 
-        public IEnumerable<Imagem> buscarPorIDProduto(int id)
+        public IEnumerable<Imagem> buscarPorIDProduto(int id, int idLoja)
         {
+            List<Imagem> list = new List<Imagem>();
             var imagens = _repositorio.buscarPorIDProduto(id);
+
+            foreach (var item in imagens)
+            {
+                Imagem imagem = new Imagem(item.IdProdutoImagem,item.nome, item.idProduto, Convert.ToInt32(item.principal), item.ativa, idLoja);
+                list.Add(imagem);
+            }
 
             if (imagens == null)
                 throw new Exception("Produto sem imagens.");
 
-            return imagens;
+            return list;
         }
 
         public void Inserir(Imagem img, int idLoja)
         {
-            string diretorio = Imagem.CriarPasta(idLoja);
+            Imagem imagem = new Imagem(img.idProduto, idLoja, img.nome);
 
-            if (string.IsNullOrEmpty(diretorio))
+            if (string.IsNullOrEmpty(imagem.diretorio))
                 throw new Exception("Não foi possível criar a pasta da loja, tente novamente.");
 
-            string nomeImagem = Guid.NewGuid().ToString() + ".jpg";
-            string pathCompleta = Path.Combine(diretorio, nomeImagem);
-
-            byte[] data = Convert.FromBase64String(img.nome);
-            Imagem.Comprimir(new MemoryStream(data), pathCompleta);
-
-            _repositorio.Inserir(img);
+            Imagem.Comprimir(new MemoryStream(imagem.base64), imagem.pathCompleta);
+            
+            _repositorio.Inserir(imagem);
         }
-
-
 
         public void Deletar(int id)
         {

@@ -41,5 +41,24 @@ namespace VitrinniManager.API.Controllers
             }
         }
 
+
+
+        [HttpGet]
+        [Route("obterImagensIDProduto/{id}")]
+        public Task<HttpResponseMessage> obterImagensIDProduto(int id)
+        {
+            try
+            {
+                int idLoja = _lojaServico.bucarPorEmailComEndereco(User.Identity.Name).idLoja;
+                var imagens = _imagemServico.buscarPorIDProduto(id, idLoja);
+                return CreateResponse(HttpStatusCode.OK, imagens);
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
+
     }
 }
