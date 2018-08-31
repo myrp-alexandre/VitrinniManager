@@ -57,14 +57,25 @@
                         <button class="btn btn-success btn-sm" ng-click="vm.cadastrarImagem(vm.imagemCortada)"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Enviar</button>
                         <br />
                         <br />
- 
-                        <div>
-                            <span ng-repeat="i in vm.imagens">
-                                <img ng-src="{{i.base64Retorno}}" alt="..." class="img-thumbnail col-md-2">
-                                <input type="radio" ng-model="$parent.FotoPrincipal" ng-value="i"/>
-                                <small>principal</small>
-                            </span>
+                        <!--ng-repeat="i in vm.imagens"
+                            {{i.base64Retorno}}
+                            -->
+                        <div class="row col-md-12">
+
+                            <div>
+                                <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail" />
+                                <label class="container">
+                                    principal
+                                    <input type="radio" ng-model="$parent.FotoPrincipal" ng-value="i" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
                         </div>
+
                     </div>
 
                 </blockquote>
