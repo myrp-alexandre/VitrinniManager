@@ -7,7 +7,8 @@
     function ImagemFactory($http, SETTINGS, $rootScope) {
         return {
             Cadastrar: Cadastrar,
-            obterImagens: obterImagens
+            obterImagens: obterImagens,
+            Remover: Remover
         };
 
         function Cadastrar(imagem) {
@@ -16,6 +17,10 @@
 
         function obterImagens(idProduto) {
             return $http.get(SETTINGS.SERVICE_URL + 'api/imagem/obterImagensIDProduto/' + idProduto, $rootScope.header);
+        }
+
+        function Remover(id) {
+            return $http.delete(SETTINGS.SERVICE_URL + 'api/imagem/removerImagem/' + id, $rootScope.header);
         }
     }
 })();

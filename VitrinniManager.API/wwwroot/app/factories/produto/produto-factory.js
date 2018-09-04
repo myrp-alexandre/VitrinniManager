@@ -7,7 +7,7 @@
     function ProdutoFactory($http, SETTINGS, $rootScope) {
         return {
             Cadastrar: Cadastrar,
-            obterProdutos: obterProdutos
+            obterProdutos: obterProdutos, 
         };
 
         function Cadastrar(produto) {

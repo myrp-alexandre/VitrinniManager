@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using VitrinniManager.Dominio.Contratos;
 using VitrinniManager.Dominio.Modelos;
@@ -24,7 +25,7 @@ namespace VitrinniManager.Negocio.Servicos
             var imagem = _repositorio.buscarPorID(id);
 
             if (imagem == null)
-                throw new Exception("Imagem não encontrada.");
+                throw new Exception("Imagem não encontrada, tente novamente.");
 
             return imagem;
         }
@@ -60,7 +61,9 @@ namespace VitrinniManager.Negocio.Servicos
 
         public void Deletar(int id)
         {
-            var imagem = _repositorio.buscarPorID(id);
+            var imagem = buscarPorID(id);
+            imagem.ativa = false;
+
             _repositorio.Deletar(imagem);
         }
 

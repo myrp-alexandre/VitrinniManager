@@ -26,7 +26,7 @@ namespace VitrinniManager.Infra.Repositorio
 
         public IEnumerable<Imagem> buscarPorIDProduto(int idProduto)
         {
-            var imagens = _context.Imagens.Where(x => x.idProduto == idProduto).ToList();
+            var imagens = _context.Imagens.Where(x => x.idProduto == idProduto && x.ativa == true).ToList();
             return imagens;
         }
 
@@ -38,7 +38,7 @@ namespace VitrinniManager.Infra.Repositorio
 
         public void Deletar(Imagem img)
         {
-            _context.Entry(img).State = EntityState.Deleted;
+            _context.Entry(img).State = EntityState.Modified;
             _context.SaveChanges();
         }
 

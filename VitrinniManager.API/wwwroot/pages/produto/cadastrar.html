@@ -57,23 +57,17 @@
                         <button class="btn btn-success btn-sm" ng-click="vm.cadastrarImagem(vm.imagemCortada)"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Enviar</button>
                         <br />
                         <br />
-                        <!--ng-repeat="i in vm.imagens"
-                            {{i.base64Retorno}}
-                            -->
                         <div class="row col-md-12">
-
-                            <div>
-                                <img ng-src="{{vm.imagemCortada}}" alt="..." class="img-thumbnail" />
-                                <label class="container">
-                                    principal
-                                    <input type="radio" ng-model="$parent.FotoPrincipal" ng-value="i" />
-                                    <span class="checkmark"></span>
-                                </label>
+                            <div class="col-md-3" ng-repeat="i in vm.imagens">
+                                {{i.idProdutoImagem}}
+                                {{i.principal}}
+                                {{i.idProduto}}
+                                <div>
+                                    <button type="button" class="btn btn-warning btn-sm" ng-click="vm.imagemPricipal(i.idProdutoImagem)"><i class="fa fa-tag" aria-hidden="true"></i> principal</button>
+                                    <button type="button" class="btn btn-danger btn-sm" ng-click="vm.removerImagem(i)"><i class="fa fa-remove" aria-hidden="true"></i> remover</button>
+                                </div>
+                                <img ng-src="{{i.base64Retorno}}" alt="..." class="img-thumbnail col-md-12" />
                             </div>
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
                         </div>
 
                     </div>

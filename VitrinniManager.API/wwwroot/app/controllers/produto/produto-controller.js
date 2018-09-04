@@ -1,7 +1,7 @@
 ﻿((function () {
     'use strict';
     angular.module('vitrinni_manager').controller('ProdutoController', ProdutoController);
-    ProdutoController.$inject = ['$scope', '$rootScope', 'ProdutoFactory', 'EstoqueFactory', 'DepartamentoFactory', 'ImagemFactory' ,'SETTINGS', '$location'];
+    ProdutoController.$inject = ['$scope', '$rootScope', 'ProdutoFactory', 'EstoqueFactory', 'DepartamentoFactory', 'ImagemFactory', 'SETTINGS', '$location'];
 
     function ProdutoController($scope, $rootScope, ProdutoFactory, EstoqueFactory, DepartamentoFactory, ImagemFactory, SETTINGS, $location) {
         var vm = this;
@@ -15,7 +15,6 @@
 
         vm.imagem = '';
         vm.imagemCortada = '';
-        vm.FotoPrincipalq = {};
 
         vm.departamento = {
             departamento: null,
@@ -45,7 +44,7 @@
             peso: '',
             servico: 0,
             estoque: [{
-               
+
             }]
         };
 
@@ -61,7 +60,9 @@
         vm.obterEstoque = obterEstoque;
         vm.obterProdutos = obterProdutos;
         vm.obterImagens = obterImagens;
-       
+        vm.imagemPricipal = imagemPricipal;
+        vm.removerImagem = removerImagem;
+         
         vm.cadastrarDepartamento = cadastrarDepartamento;
         vm.cadastrarProduto = cadastrarProduto;
         vm.cadastrarEstoque = cadastrarEstoque;
@@ -179,6 +180,29 @@
                     toastr.error(error.data.Message, 'Erro');
                 });
         }
+
+        function removerImagem(imagem) {
+            ImagemFactory.Remover(imagem.idProdutoImagem)
+                .then(function (response) {
+                    obterImagens(imagem.idProduto);
+                    toastr.success("Imagem removida", 'Sucesso');
+                })
+                .catch(function (error) {
+                    toastr.error(error.data.Message, 'Erro');
+                });
+        }
+
+
+        function imagemPricipal(idImg) {
+            angular.forEach(vm.imagens, function (value, key) {
+                if (value.idProdutoImagem === idImg) {
+                    value.principal = 1;
+                } else {
+                    value.principal = 0;
+                }
+            });
+        }
+
 
         var handleFileSelect = function (evt) {
             var file = evt.currentTarget.files[0];

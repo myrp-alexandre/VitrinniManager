@@ -41,7 +41,20 @@ namespace VitrinniManager.API.Controllers
             }
         }
 
-
+        [HttpDelete]
+        [Route("removerImagem/{id}")]
+        public Task<HttpResponseMessage> removerImagem(string id)
+        {
+            try
+            {
+                _imagemServico.Deletar(Convert.ToInt32(id));
+                return CreateResponse(HttpStatusCode.OK, "ok");
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
 
         [HttpGet]
         [Route("obterImagensIDProduto/{id}")]
